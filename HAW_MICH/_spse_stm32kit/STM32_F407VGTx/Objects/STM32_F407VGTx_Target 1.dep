@@ -1,0 +1,35 @@
+Dependencies for Project 'STM32_F407VGTx', Target 'Target 1': (DO NOT MODIFY !)
+F (..\README.txt)(0x62C06D0B)()
+F (..\STM32\src\STM32_00_HelloWorld_01-blinkLED.c)(0x62C08AE3)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O1 --apcs=interwork --split_sections -I ..\STM32\include-I C:\Users\root\Documents\kapitanov\spse\HAW_MICH\spse_stm32kit\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F407xx-o .\objects\stm32_00_helloworld_01-blinkled.o --omf_browse .\objects\stm32_00_helloworld_01-blinkled.crf --depend .\objects\stm32_00_helloworld_01-blinkled.d)
+I (..\STM32\include\stm32_kit.h)(0x62C06C65)
+I (..\STM32\include\stm32_kit/platform.h)(0x62C06DE9)
+I (f:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569D7C80)
+I (C:\Users\root\Documents\kapitanov\spse\HAW_MICH\spse_stm32kit\STM32_F407VGTx\RTE\RTE_Components.h)(0x65016CD2)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5643D680)
+I (..\STM32\include\stm32_kit/chrono.h)(0x62C0792E)
+I (..\STM32\include\stm32_kit/gpio.h)(0x62C08A98)
+I (..\STM32\include\stm32_kit/led.h)(0x62C071A5)
+F (..\STM32\src\STM32_00_HelloWorld_02-extLED.c)(0x62C071E8)()
+F (..\STM32\src\STM32_00_HelloWorld_03-userButton.c)(0x62C07433)()
+F (..\STM32\src\STM32_00_HelloWorld_04-LCD.c)(0x62C07C91)()
+F (..\STM32\src\STM32_00_HelloWorld_05-KeyPad.c)(0x62C07DD7)()
+F (..\STM32\src\STM32_00_HelloWorld_06-blinkLED_TIMx.c)(0x62C08B47)()
+F (..\STM32\src\STM32_00_HelloWorld_07-blinkLED_TIMx-2.c)(0x62C08A28)()
+F (RTE\Device\STM32F407VGTx\startup_stm32f407xx.s)(0x564496F4)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Users\root\Documents\kapitanov\spse\HAW_MICH\spse_stm32kit\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 518" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f407xx.lst --xref -o .\objects\startup_stm32f407xx.o --depend .\objects\startup_stm32f407xx.d)
+F (RTE\Device\STM32F407VGTx\system_stm32f4xx.c)(0x564496F6)(--c99 -c --cpu Cortex-M4.fp -D__EVAL -g -O1 --apcs=interwork --split_sections -I ..\STM32\include-I C:\Users\root\Documents\kapitanov\spse\HAW_MICH\spse_stm32kit\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F407xx-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x562567E0)
+I (f:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569D7C80)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5643D680)

@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Component Configuration File
  *      *** Do not modify ! ***
  *
- * Project: '1' 
+ * Project: 'STM32_F411RETx' 
  * Target:  'Target 1' 
  */
 

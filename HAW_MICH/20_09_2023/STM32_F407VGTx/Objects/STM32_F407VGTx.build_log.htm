@@ -1,0 +1,79 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.18.0.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: q Microsoft, Microsoft, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.18
+Toolchain Path:  f:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.18
+Dialog DLL:      DCM.DLL V1.13.6.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.18.0
+Dialog DLL:      TCM.DLL V1.14.8.0
+ 
+<h2>Project:</h2>
+C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32_F407VGTx\STM32_F407VGTx.uvprojx
+Project File Date:  09/20/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'f:\Keil_v5\ARM\ARMCC\Bin'
+Rebuild Project 'STM32_F407VGTx' - Target 'Target 1'
+assembling startup_stm32f407xx.s...
+compiling STM32_00_HelloWorld_01-blinkLED.c...
+C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32\src\STM32_00_HelloWorld_01-blinkLED.c(82): error:  #169: expected a declaration
+  }
+C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32\src\STM32_00_HelloWorld_01-blinkLED.c(112): warning:  #12-D: parsing restarts here after previous syntax error
+  		cat++;
+C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32\src\STM32_00_HelloWorld_01-blinkLED.c(113): error:  #169: expected a declaration
+  		if(cat == 2){
+C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32\src\STM32_00_HelloWorld_01-blinkLED.c(118): warning:  #12-D: parsing restarts here after previous syntax error
+    return 0;
+C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32\src\STM32_00_HelloWorld_01-blinkLED.c(119): error:  #169: expected a declaration
+  }
+..\STM32\src\STM32_00_HelloWorld_01-blinkLED.c: 2 warnings, 3 errors
+compiling system_stm32f4xx.c...
+".\Objects\STM32_F407VGTx.axf" - 3 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.7.0.pack
+                Keil::Device:Startup:2.4.2
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.4.2
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ARM::CMSIS:CORE:4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.3.0
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\root\Documents\kapitanov\HAW_MICH\20_09_2023\STM32_F407VGTx\RTE
+  f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: Keil::Device:Startup:2.4.2
+      Source file:   MDK\Device\Source\ARM\STM32F40xxx_41xxx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f407xx.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+Target not created.
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

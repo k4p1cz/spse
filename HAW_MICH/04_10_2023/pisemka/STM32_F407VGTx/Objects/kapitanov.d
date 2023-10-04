@@ -1,0 +1,16 @@
+.\objects\kapitanov.o: kapitanov.c
+.\objects\kapitanov.o: ..\STM32\include\stm32_kit.h
+.\objects\kapitanov.o: ..\STM32\include\stm32_kit/platform.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\kapitanov.o: C:\Users\root\Documents\kapitanov\spse\HAW_MICH\04_10_2023\pisemka\STM32_F407VGTx\RTE\RTE_Components.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h
+.\objects\kapitanov.o: f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h
+.\objects\kapitanov.o: ..\STM32\include\stm32_kit/chrono.h
+.\objects\kapitanov.o: ..\STM32\include\stm32_kit/gpio.h
+.\objects\kapitanov.o: ..\STM32\include\stm32_kit/led.h

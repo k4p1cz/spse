@@ -24,7 +24,7 @@ extern "C" {
 // <i> Include RTOS config files and enable its support in project.
 // <i> Note that RTOS requires RTOS examples.
 #ifndef USE_RTOS
- #define USE_RTOS    0
+ #define USE_RTOS    1
 #endif
 
 // </h>

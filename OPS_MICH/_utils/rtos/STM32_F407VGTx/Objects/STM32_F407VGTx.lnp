@@ -1,0 +1,9 @@
+--cpu Cortex-M4
+".\objects\rtx_conf_cm.o"
+".\objects\rtos_helloworld_00_rtx.o"
+".\objects\startup_stm32f407xx.o"
+".\objects\system_stm32f4xx.o"
+f:\Keil_v5\ARM\RV31\Lib\RTX_CM3.LIB
+--ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\STM32_F407VGTx.map" -o .\Objects\STM32_F407VGTx.axf

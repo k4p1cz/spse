@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProjectGui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_guix.xsd">
+
+  <SchemaVersion>-5.1</SchemaVersion>
+
+  <Header>### uVision Project, (C) Keil Software</Header>
+
+  <ViewPool/>
+
+  <SECTreeCtrl>
+    <View>
+      <WinId>38003</WinId>
+      <ViewName>Registers</ViewName>
+      <TableColWidths>115 290</TableColWidths>
+    </View>
+    <View>
+      <WinId>346</WinId>
+      <ViewName>Code Coverage</ViewName>
+      <TableColWidths>610 160</TableColWidths>
+    </View>
+    <View>
+      <WinId>204</WinId>
+      <ViewName>Performance Analyzer</ViewName>
+      <TableColWidths>770</TableColWidths>
+    </View>
+  </SECTreeCtrl>
+
+  <TreeListPane>
+    <View>
+      <WinId>1506</WinId>
+      <ViewName>Symbols</ViewName>
+      <UserString></UserString>
+      <TableColWidths>53 53 53</TableColWidths>
+    </View>
+    <View>
+      <WinId>1936</WinId>
+      <ViewName>Watch 1</ViewName>
+      <UserString></UserString>
+      <TableColWidths>53 53 53</TableColWidths>
+    </View>
+    <View>
+      <WinId>1937</WinId>
+      <ViewName>Watch 2</ViewName>
+      <UserString></UserString>
+      <TableColWidths>53 53 53</TableColWidths>
+    </View>
+    <View>
+      <WinId>1935</WinId>
+      <ViewName>Call Stack + Locals</ViewName>
+      <UserString></UserString>
+      <TableColWidths>53 53 53</TableColWidths>
+    </View>
+    <View>
+      <WinId>2506</WinId>
+      <ViewName>Trace Data</ViewName>
+      <UserString></UserString>
+      <TableColWidths>75 135 130 95 70 230 200 150</TableColWidths>
+    </View>
+  </TreeListPane>
+
+  <WindowSettings>
+    <LogicAnalizer>
+      <ShowLACursor>0</ShowLACursor>
+      <ShowSignalInfo>0</ShowSignalInfo>
+      <ShowCycles>0</ShowCycles>
+      <LeftSideBarSize>50</LeftSideBarSize>
+      <TimeBaseIndex>12</TimeBaseIndex>
+    </LogicAnalizer>
+  </WindowSettings>
+
+  <WinLayoutEx>
+    <sActiveDebugView></sActiveDebugView>
+    <WindowPosition>
+      <length>44</length>
+      <flags>2</flags>
+      <showCmd>3</showCmd>
+      <MinPosition>
+        <xPos>-1</xPos>
+        <yPos>-1</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>-1</xPos>
+        <yPos>-1</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>19</Top>
+        <Left>46</Left>
+        <Right>1141</Right>
+        <Bottom>688</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+    <MDIClientArea>
+      <RegID>0</RegID>
+      <MDITabState>
+        <Len>794</Len>
+        <Data>01000000040000000100000001000000010000000100000000000000020000000000000001000000010000000000000028000000280000000100000007000000000000000100000041433A5C7679756B615C72616C615C7274785F6E5C53544D33325C7372635C53544D33325F30305F48656C6C6F576F726C645F30332D75736572427574746F6E2E63000000002353544D33325F30305F48656C6C6F576F726C645F30332D75736572427574746F6E2E6300000000C5D4F200FFFFFFFF32433A5C7679756B615C72616C615C7274785F6E5C53544D33325C696E636C7564655C73746D33325F6B69745C6770696F2E6800000000066770696F2E68000000009CC1B600FFFFFFFF30433A5C7679756B615C72616C615C7274785F6E5C53544D33325F46343037564754785C5254585F436F6E665F434D2E63000000000D5254585F436F6E665F434D2E6300000000BCA8E100FFFFFFFF3B433A5C7679756B615C72616C615C7274785F6E5C53544D33325F46343037564754785C72746F735F68656C6C6F776F726C645F30305F7274782E63000000001872746F735F68656C6C6F776F726C645F30305F7274782E6300000000F0A0A100FFFFFFFF51433A5C7679756B615C72616C615C7274785F6E5C53544D33325F46343037564754785C5254455C4465766963655C53544D333246343037564754785C737461727475705F73746D33326634303778782E730000000015737461727475705F73746D33326634303778782E7300000000BECEA100FFFFFFFF1E433A5C7679756B615C72616C615C7274785F6E5C524541444D452E747874000000000A524541444D452E74787400000000FFDC7800FFFFFFFF31433A5C7679756B615C72616C615C7274785F6E5C53544D33325C696E636C7564655C73746D33325F6B69745C6C65642E6800000000056C65642E6800000000C5D4F200FFFFFFFF0100000010000000C5D4F200FFDC7800BECEA100F0A0A100BCA8E1009CC1B600F7B88600D9ADC200A5C2D700B3A6BE00EAD6A300F6FA7D00B5E99D005FC3CF00C1838300CACAD500010000000000000002000000A3010000660000000005000005020000</Data>
+      </MDITabState>
+    </MDIClientArea>
+  </WinLayoutEx>
+
+</ProjectGui>

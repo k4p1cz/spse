@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "platform.h": "c"
+    },
+    "editor.rulers": [80,100,120]
+}

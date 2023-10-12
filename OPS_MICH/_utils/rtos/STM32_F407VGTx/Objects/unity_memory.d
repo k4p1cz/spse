@@ -1,0 +1,13 @@
+.\objects\unity_memory.o: C:/Users/root/AppData/Local/Arm/Packs/Arm-Packs/Unity/1.0.0/extras/memory/src/unity_memory.c
+.\objects\unity_memory.o: C:/Users/root/AppData/Local/Arm/Packs/Arm-Packs/Unity/1.0.0/rte/unity_preinclude.h
+.\objects\unity_memory.o: C:\Users\root\AppData\Local\Arm\Packs\Arm-Packs\Unity\1.0.0\src\unity.h
+.\objects\unity_memory.o: C:\Users\root\AppData\Local\Arm\Packs\Arm-Packs\Unity\1.0.0\src\unity_internals.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\setjmp.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\math.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\limits.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\unity_memory.o: C:/Users/root/AppData/Local/Arm/Packs/Arm-Packs/Unity/1.0.0/extras/memory/src/unity_memory.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\unity_memory.o: C:\Keil\V5\ARM\ARMCC\Bin\..\include\string.h

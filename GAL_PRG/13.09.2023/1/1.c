@@ -120,7 +120,6 @@ int printItems(){
 	return 1;
 }
 void getAllItems(ITEMS allItems[999]){
-	
 	int i;
 	int items_count = 0;
 	FILE *f = fopen("data/data.txt", "r");

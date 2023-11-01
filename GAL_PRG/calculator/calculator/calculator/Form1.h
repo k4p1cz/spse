@@ -43,6 +43,10 @@ namespace calculator {
 
 
 	private: System::Windows::Forms::Button^  btn_result;
+	private: System::Windows::Forms::Button^  btn_multiplication;
+	private: System::Windows::Forms::Button^  btn_division;
+	private: System::Windows::Forms::Button^  btn_comma;
+
 
 
 
@@ -67,6 +71,9 @@ namespace calculator {
 			this->btn_add = (gcnew System::Windows::Forms::Button());
 			this->btn_subtract = (gcnew System::Windows::Forms::Button());
 			this->btn_result = (gcnew System::Windows::Forms::Button());
+			this->btn_multiplication = (gcnew System::Windows::Forms::Button());
+			this->btn_division = (gcnew System::Windows::Forms::Button());
+			this->btn_comma = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// btn_1
@@ -119,6 +126,7 @@ namespace calculator {
 			this->btn_6->TabIndex = 5;
 			this->btn_6->Text = L"6";
 			this->btn_6->UseVisualStyleBackColor = true;
+			this->btn_6->UseWaitCursor = true;
 			this->btn_6->Click += gcnew System::EventHandler(this, &Form1::btn_6_Click);
 			// 
 			// btn_5
@@ -264,10 +272,52 @@ namespace calculator {
 			this->btn_result->UseVisualStyleBackColor = true;
 			this->btn_result->Click += gcnew System::EventHandler(this, &Form1::btn_result_Click);
 			// 
+			// btn_multiplication
+			// 
+			this->btn_multiplication->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_multiplication->Location = System::Drawing::Point(389, 239);
+			this->btn_multiplication->Margin = System::Windows::Forms::Padding(1);
+			this->btn_multiplication->Name = L"btn_multiplication";
+			this->btn_multiplication->Size = System::Drawing::Size(75, 75);
+			this->btn_multiplication->TabIndex = 15;
+			this->btn_multiplication->Text = L"x";
+			this->btn_multiplication->UseVisualStyleBackColor = true;
+			this->btn_multiplication->Click += gcnew System::EventHandler(this, &Form1::btn_multiplication_Click);
+			// 
+			// btn_division
+			// 
+			this->btn_division->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_division->Location = System::Drawing::Point(389, 150);
+			this->btn_division->Margin = System::Windows::Forms::Padding(1);
+			this->btn_division->Name = L"btn_division";
+			this->btn_division->Size = System::Drawing::Size(75, 75);
+			this->btn_division->TabIndex = 16;
+			this->btn_division->Text = L"/";
+			this->btn_division->UseVisualStyleBackColor = true;
+			this->btn_division->Click += gcnew System::EventHandler(this, &Form1::btn_division_Click);
+			// 
+			// btn_comma
+			// 
+			this->btn_comma->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_comma->Location = System::Drawing::Point(297, 508);
+			this->btn_comma->Margin = System::Windows::Forms::Padding(1);
+			this->btn_comma->Name = L"btn_comma";
+			this->btn_comma->Size = System::Drawing::Size(75, 75);
+			this->btn_comma->TabIndex = 17;
+			this->btn_comma->Text = L",";
+			this->btn_comma->UseVisualStyleBackColor = true;
+			this->btn_comma->Click += gcnew System::EventHandler(this, &Form1::btn_comma_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->ClientSize = System::Drawing::Size(484, 611);
+			this->Controls->Add(this->btn_comma);
+			this->Controls->Add(this->btn_division);
+			this->Controls->Add(this->btn_multiplication);
 			this->Controls->Add(this->btn_result);
 			this->Controls->Add(this->btn_subtract);
 			this->Controls->Add(this->btn_add);
@@ -283,6 +333,7 @@ namespace calculator {
 			this->Controls->Add(this->btn_3);
 			this->Controls->Add(this->btn_2);
 			this->Controls->Add(this->btn_1);
+			this->KeyPreview = true;
 			this->MaximumSize = System::Drawing::Size(500, 650);
 			this->MinimizeBox = false;
 			this->MinimumSize = System::Drawing::Size(500, 650);
@@ -290,6 +341,7 @@ namespace calculator {
 			this->Padding = System::Windows::Forms::Padding(1);
 			this->SizeGripStyle = System::Windows::Forms::SizeGripStyle::Hide;
 			this->Text = L"Calculator";
+			this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form1::Form1_KeyPress);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -300,6 +352,9 @@ namespace calculator {
 		int currentOperation = 0;
 		double num_1 = 0;
 		double num_2 = 0;
+		bool error = false;
+		bool clear = false;
+		bool comma = false;
 
 		/*
 			OPERATIONS
@@ -343,40 +398,80 @@ namespace calculator {
 		private: System::Void btn_clear_Click(System::Object^  sender, System::EventArgs^  e) {
 			clearResultBox();
 		}
-		private: System::Void btn_add_Click(System::Object^  sender, System::EventArgs^  e) {
-			currentOperation = 1;
-			switch (numOfCalcs) {
-				case 0:
-					num_1 = System::Convert::ToDouble(resultBox->Text);
-					break;
-
-				case 1:
+		private: System::Void btn_division_Click(System::Object^  sender, System::EventArgs^  e) {
+			if (!error) {
+				if (numOfCalcs > 0) {
 					num_2 = System::Convert::ToDouble(resultBox->Text);
-					break;
-				case 2:
-					// showResult()
-					
-					break;
+					calculate(num_1, num_2, currentOperation);
+					numOfCalcs++;
+					currentOperation = 3;
+					num_1 = System::Convert::ToDouble(resultBox->Text);
+					clear = true;
+					numOfCalcs++;
+					return;
+				}
+				currentOperation = 3;
+				num_1 = System::Convert::ToDouble(resultBox->Text);
+				clear = true;
+				numOfCalcs++;
 			}
-			numOfCalcs++;
+		}
+		private: System::Void btn_multiplication_Click(System::Object^  sender, System::EventArgs^  e) {
+			if (!error) {
+
+				if (numOfCalcs > 0) {
+					num_2 = System::Convert::ToDouble(resultBox->Text);
+					calculate(num_1, num_2, currentOperation);
+					numOfCalcs++;
+					currentOperation = 4;
+					num_1 = System::Convert::ToDouble(resultBox->Text);
+					clear = true;
+					numOfCalcs++;
+					return;
+				}
+				currentOperation = 4;
+				num_1 = System::Convert::ToDouble(resultBox->Text);
+				clear = true;
+				numOfCalcs++;
+			}
+		}
+		private: System::Void btn_add_Click(System::Object^  sender, System::EventArgs^  e) {
+			if (!error) {
+
+				if (numOfCalcs > 0) {
+					num_2 = System::Convert::ToDouble(resultBox->Text);
+					calculate(num_1, num_2, currentOperation);
+					numOfCalcs++;
+					currentOperation = 1;
+					num_1 = System::Convert::ToDouble(resultBox->Text);
+					clear = true;
+					numOfCalcs++;
+					return;
+				}
+				currentOperation = 1;
+				num_1 = System::Convert::ToDouble(resultBox->Text);
+				clear = true;
+				numOfCalcs++;
+			}
 		}
 		private: System::Void btn_subtract_Click(System::Object^  sender, System::EventArgs^  e) {
-			currentOperation = 2;
-			switch (numOfCalcs) {
-			case 0:
+			if (!error) {
+
+				if (numOfCalcs > 0) {
+					num_2 = System::Convert::ToDouble(resultBox->Text);
+					calculate(num_1, num_2, currentOperation);
+					numOfCalcs++;
+					currentOperation = 2;
+					num_1 = System::Convert::ToDouble(resultBox->Text);
+					clear = true;
+					numOfCalcs++;
+					return;
+				}
+				currentOperation = 2;
 				num_1 = System::Convert::ToDouble(resultBox->Text);
-				break;
-
-			case 1:
-				num_2 = System::Convert::ToDouble(resultBox->Text);
-				break;
-			case 2:
-				// showResult()
-
-				break;
+				clear = true;
+				numOfCalcs++;
 			}
-			clearResultBox();
-			numOfCalcs++;
 		}
 		private: System::Void btn_result_Click(System::Object^  sender, System::EventArgs^  e) {
 			if (numOfCalcs > 0) {
@@ -386,11 +481,29 @@ namespace calculator {
 		}
 
 
-
+		private: System::Void btn_comma_Click(System::Object^  sender, System::EventArgs^  e) {
+			String ^currentText = resultBox->Text;
+			if (currentText == "0" || error || comma) {
+				return;
+			}
+			else {
+				resultBox->Text += ",";
+				comma = true;
+			}
+		}
 		private: System::Void clearResultBox() {
 			resultBox->Text = "0";
+			error = false;
 		}
 		private: System::Void addNum(String ^num) {
+			if (error) {
+				resultBox->Text = "0";
+				error = false;
+			}
+			if (clear) {
+				clearResultBox();
+				clear = false;
+			}
 			String ^currentText = resultBox->Text;
 			double x = System::Convert::ToDouble(currentText);
 			int numInt = System::Convert::ToInt32(num);
@@ -422,6 +535,25 @@ namespace calculator {
 				result_string = System::Convert::ToString(result);
 				resultBox->Text = result_string;
 				break;
+			case 3:
+				if (num2 == 0) {
+					resultBox->Text = "Error";
+					error = true;
+					num_1 = 0;
+					num_2 = 0;
+					currentOperation = 0;
+					numOfCalcs = 0;
+					return;
+				}
+				result = num1 / num2;
+				result_string = System::Convert::ToString(result);
+				resultBox->Text = result_string;
+				break;
+			case 4:
+				result = num1 * num2;
+				result_string = System::Convert::ToString(result);
+				resultBox->Text = result_string;
+				break;
 			}
 
 			num_1 = 0;
@@ -429,8 +561,11 @@ namespace calculator {
 			currentOperation = 0;
 			numOfCalcs = 0;
 		}
-
-
-
+		private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
+			String ^z = e->KeyChar.ToString();
+			if (z == "1" || z == "2" || z == "3" || z == "4" || z == "5" || z == "6" || z == "7" || z == "8" || z == "9") {
+				// next time
+			}
+		}
 };
 }

@@ -36,7 +36,7 @@ namespace calculator {
 	private: System::Windows::Forms::Button^  btn_9;
 	private: System::Windows::Forms::Button^  btn_8;
 	private: System::Windows::Forms::Button^  btn_7;
-	private: System::Windows::Forms::TextBox^  resultBox;
+
 	private: System::Windows::Forms::Button^  btn_0;
 	private: System::Windows::Forms::Button^  btn_clear;
 	private: System::Windows::Forms::Button^  btn_add;
@@ -51,6 +51,7 @@ namespace calculator {
 	private: System::Windows::Forms::Button^ btn_plusminus;
 	private: System::Windows::Forms::Button^ btn_pow;
 	private: System::Windows::Forms::Button^ btn_sqrt;
+	private: System::Windows::Forms::Label^ resultBox;
 
 
 
@@ -70,7 +71,6 @@ namespace calculator {
 			this->btn_9 = (gcnew System::Windows::Forms::Button());
 			this->btn_8 = (gcnew System::Windows::Forms::Button());
 			this->btn_7 = (gcnew System::Windows::Forms::Button());
-			this->resultBox = (gcnew System::Windows::Forms::TextBox());
 			this->btn_0 = (gcnew System::Windows::Forms::Button());
 			this->btn_clear = (gcnew System::Windows::Forms::Button());
 			this->btn_add = (gcnew System::Windows::Forms::Button());
@@ -83,6 +83,7 @@ namespace calculator {
 			this->btn_plusminus = (gcnew System::Windows::Forms::Button());
 			this->btn_pow = (gcnew System::Windows::Forms::Button());
 			this->btn_sqrt = (gcnew System::Windows::Forms::Button());
+			this->resultBox = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// btn_1
@@ -203,19 +204,6 @@ namespace calculator {
 			this->btn_7->UseVisualStyleBackColor = true;
 			this->btn_7->Click += gcnew System::EventHandler(this, &Form1::btn_7_Click);
 			// 
-			// resultBox
-			// 
-			this->resultBox->Font = (gcnew System::Drawing::Font(L"Arial", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(238)));
-			this->resultBox->Location = System::Drawing::Point(14, 35);
-			this->resultBox->Margin = System::Windows::Forms::Padding(0, 10, 0, 10);
-			this->resultBox->Name = L"resultBox";
-			this->resultBox->ReadOnly = true;
-			this->resultBox->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
-			this->resultBox->Size = System::Drawing::Size(450, 39);
-			this->resultBox->TabIndex = 9;
-			this->resultBox->Text = L"0";
-			// 
 			// btn_0
 			// 
 			this->btn_0->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -231,15 +219,19 @@ namespace calculator {
 			// 
 			// btn_clear
 			// 
+			this->btn_clear->BackColor = System::Drawing::Color::White;
+			this->btn_clear->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->btn_clear->FlatAppearance->BorderColor = System::Drawing::Color::Red;
+			this->btn_clear->FlatAppearance->BorderSize = 0;
 			this->btn_clear->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
 			this->btn_clear->Location = System::Drawing::Point(118, 150);
-			this->btn_clear->Margin = System::Windows::Forms::Padding(1);
+			this->btn_clear->Margin = System::Windows::Forms::Padding(0);
 			this->btn_clear->Name = L"btn_clear";
 			this->btn_clear->Size = System::Drawing::Size(75, 75);
 			this->btn_clear->TabIndex = 11;
 			this->btn_clear->Text = L"C";
-			this->btn_clear->UseVisualStyleBackColor = true;
+			this->btn_clear->UseVisualStyleBackColor = false;
 			this->btn_clear->Click += gcnew System::EventHandler(this, &Form1::btn_clear_Click);
 			// 
 			// btn_add
@@ -355,7 +347,7 @@ namespace calculator {
 			this->btn_pow->Name = L"btn_pow";
 			this->btn_pow->Size = System::Drawing::Size(75, 75);
 			this->btn_pow->TabIndex = 20;
-			this->btn_pow->Text = L"x²";
+			this->btn_pow->Text = L" x²";
 			this->btn_pow->UseVisualStyleBackColor = true;
 			this->btn_pow->Click += gcnew System::EventHandler(this, &Form1::btn_pow_Click);
 			// 
@@ -372,10 +364,27 @@ namespace calculator {
 			this->btn_sqrt->UseVisualStyleBackColor = true;
 			this->btn_sqrt->Click += gcnew System::EventHandler(this, &Form1::btn_sqrt_Click);
 			// 
+			// resultBox
+			// 
+			this->resultBox->AutoSize = true;
+			this->resultBox->BackColor = System::Drawing::Color::Black;
+			this->resultBox->Font = (gcnew System::Drawing::Font(L"Arial", 30, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->resultBox->ForeColor = System::Drawing::Color::White;
+			this->resultBox->Location = System::Drawing::Point(29, 24);
+			this->resultBox->MinimumSize = System::Drawing::Size(435, 100);
+			this->resultBox->Name = L"resultBox";
+			this->resultBox->Size = System::Drawing::Size(435, 100);
+			this->resultBox->TabIndex = 22;
+			this->resultBox->Text = L"0";
+			this->resultBox->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			// 
 			// Form1
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
+			this->BackColor = System::Drawing::Color::Black;
 			this->ClientSize = System::Drawing::Size(484, 611);
+			this->Controls->Add(this->resultBox);
 			this->Controls->Add(this->btn_sqrt);
 			this->Controls->Add(this->btn_pow);
 			this->Controls->Add(this->btn_plusminus);
@@ -388,7 +397,6 @@ namespace calculator {
 			this->Controls->Add(this->btn_add);
 			this->Controls->Add(this->btn_clear);
 			this->Controls->Add(this->btn_0);
-			this->Controls->Add(this->resultBox);
 			this->Controls->Add(this->btn_9);
 			this->Controls->Add(this->btn_8);
 			this->Controls->Add(this->btn_7);

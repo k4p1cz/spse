@@ -1,4 +1,5 @@
-#pragma once
+﻿#pragma once
+#include <cmath>
 
 namespace calculator {
 
@@ -46,6 +47,10 @@ namespace calculator {
 	private: System::Windows::Forms::Button^  btn_multiplication;
 	private: System::Windows::Forms::Button^  btn_division;
 	private: System::Windows::Forms::Button^  btn_comma;
+	private: System::Windows::Forms::Button^ btn_percentage;
+	private: System::Windows::Forms::Button^ btn_plusminus;
+	private: System::Windows::Forms::Button^ btn_pow;
+	private: System::Windows::Forms::Button^ btn_sqrt;
 
 
 
@@ -74,6 +79,10 @@ namespace calculator {
 			this->btn_multiplication = (gcnew System::Windows::Forms::Button());
 			this->btn_division = (gcnew System::Windows::Forms::Button());
 			this->btn_comma = (gcnew System::Windows::Forms::Button());
+			this->btn_percentage = (gcnew System::Windows::Forms::Button());
+			this->btn_plusminus = (gcnew System::Windows::Forms::Button());
+			this->btn_pow = (gcnew System::Windows::Forms::Button());
+			this->btn_sqrt = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// btn_1
@@ -311,10 +320,66 @@ namespace calculator {
 			this->btn_comma->UseVisualStyleBackColor = true;
 			this->btn_comma->Click += gcnew System::EventHandler(this, &Form1::btn_comma_Click);
 			// 
+			// btn_percentage
+			// 
+			this->btn_percentage->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_percentage->Location = System::Drawing::Point(297, 150);
+			this->btn_percentage->Margin = System::Windows::Forms::Padding(1);
+			this->btn_percentage->Name = L"btn_percentage";
+			this->btn_percentage->Size = System::Drawing::Size(75, 75);
+			this->btn_percentage->TabIndex = 18;
+			this->btn_percentage->Text = L"%";
+			this->btn_percentage->UseVisualStyleBackColor = true;
+			this->btn_percentage->Click += gcnew System::EventHandler(this, &Form1::btn_percentage_Click);
+			// 
+			// btn_plusminus
+			// 
+			this->btn_plusminus->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_plusminus->Location = System::Drawing::Point(207, 150);
+			this->btn_plusminus->Margin = System::Windows::Forms::Padding(1);
+			this->btn_plusminus->Name = L"btn_plusminus";
+			this->btn_plusminus->Size = System::Drawing::Size(75, 75);
+			this->btn_plusminus->TabIndex = 19;
+			this->btn_plusminus->Text = L"+/-";
+			this->btn_plusminus->UseVisualStyleBackColor = true;
+			this->btn_plusminus->Click += gcnew System::EventHandler(this, &Form1::btn_plusminus_Click);
+			// 
+			// btn_pow
+			// 
+			this->btn_pow->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_pow->Location = System::Drawing::Point(28, 150);
+			this->btn_pow->Margin = System::Windows::Forms::Padding(1);
+			this->btn_pow->Name = L"btn_pow";
+			this->btn_pow->Size = System::Drawing::Size(75, 75);
+			this->btn_pow->TabIndex = 20;
+			this->btn_pow->Text = L"x²";
+			this->btn_pow->UseVisualStyleBackColor = true;
+			this->btn_pow->Click += gcnew System::EventHandler(this, &Form1::btn_pow_Click);
+			// 
+			// btn_sqrt
+			// 
+			this->btn_sqrt->Font = (gcnew System::Drawing::Font(L"Arial", 25, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->btn_sqrt->Location = System::Drawing::Point(28, 239);
+			this->btn_sqrt->Margin = System::Windows::Forms::Padding(1);
+			this->btn_sqrt->Name = L"btn_sqrt";
+			this->btn_sqrt->Size = System::Drawing::Size(75, 75);
+			this->btn_sqrt->TabIndex = 21;
+			this->btn_sqrt->Text = L"√x";
+			this->btn_sqrt->UseVisualStyleBackColor = true;
+			this->btn_sqrt->Click += gcnew System::EventHandler(this, &Form1::btn_sqrt_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->ClientSize = System::Drawing::Size(484, 611);
+			this->Controls->Add(this->btn_sqrt);
+			this->Controls->Add(this->btn_pow);
+			this->Controls->Add(this->btn_plusminus);
+			this->Controls->Add(this->btn_percentage);
 			this->Controls->Add(this->btn_comma);
 			this->Controls->Add(this->btn_division);
 			this->Controls->Add(this->btn_multiplication);
@@ -362,7 +427,8 @@ namespace calculator {
 			2 = -
 			3 = /
 			4 = *
-			
+			5 = pow
+			6 = sqrt
 		*/
 
 		private: System::Void btn_1_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -473,14 +539,69 @@ namespace calculator {
 				numOfCalcs++;
 			}
 		}
+		private: System::Void btn_percentage_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (!error) {
+				if (numOfCalcs > 0) {
+					num_2 = System::Convert::ToDouble(resultBox->Text);
+					calculate(num_1, num_2, currentOperation);
+				}
+				if (!error || System::Convert::ToDouble(resultBox->Text) != 0) {
+					double num = System::Convert::ToDouble(resultBox->Text);
+					double result = num / 100;
+					String^ resultString = System::Convert::ToString(result);
+					resultBox->Text = resultString;
+				}
+			}
+		}
+		private: System::Void btn_plusminus_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (!error) {
+				String^ currentText = resultBox->Text;
+				if (currentText == "0" || currentText == "-0") {
+					return;
+				}
+				if (currentText->StartsWith("-")) {
+					currentText = currentText->Substring(1);
+					resultBox->Text = currentText;
+					return;
+				}
+				currentText = currentText->Insert(0, "-");
+				resultBox->Text = currentText;
+			}
+		}
+		private: System::Void btn_pow_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (!error) {
+				if (numOfCalcs > 0) {
+					num_2 = System::Convert::ToDouble(resultBox->Text);
+					calculate(num_1, num_2, currentOperation);
+				}
+				if (!error || System::Convert::ToDouble(resultBox->Text) != 0) {
+					double num = System::Convert::ToDouble(resultBox->Text);
+					double result = pow(num, 2);
+					String^ resultString = System::Convert::ToString(result);
+					resultBox->Text = resultString;
+				}
+			}
+		}
+		private: System::Void btn_sqrt_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (!error) {
+				if (numOfCalcs > 0) {
+					num_2 = System::Convert::ToDouble(resultBox->Text);
+					calculate(num_1, num_2, currentOperation);
+				}
+				if (!error || System::Convert::ToDouble(resultBox->Text) != 0) {
+					double num = System::Convert::ToDouble(resultBox->Text);
+					double result = sqrt(num);
+					String^ resultString = System::Convert::ToString(result);
+					resultBox->Text = resultString;
+				}
+			}
+		}
 		private: System::Void btn_result_Click(System::Object^  sender, System::EventArgs^  e) {
 			if (numOfCalcs > 0) {
 				num_2 = System::Convert::ToDouble(resultBox->Text);
 				calculate(num_1, num_2, currentOperation);
 			}
 		}
-
-
 		private: System::Void btn_comma_Click(System::Object^  sender, System::EventArgs^  e) {
 			String ^currentText = resultBox->Text;
 			if (currentText == "0" || error || comma) {
@@ -499,6 +620,7 @@ namespace calculator {
 			if (error) {
 				resultBox->Text = "0";
 				error = false;
+				return;
 			}
 			if (clear) {
 				clearResultBox();
@@ -518,6 +640,26 @@ namespace calculator {
 				}
 
 				resultBox->Text += num;
+			}
+		}
+		private: System::Void removeNum() {
+			if (error) {
+				resultBox->Text = "0";
+				error = false;
+				return;
+			}
+			if (clear) {
+				clearResultBox();
+				clear = false;
+				return;
+			}
+			String^ currentText = resultBox->Text;
+			if (currentText != "0") {
+				currentText = currentText->Substring(0, currentText->Length - 1);
+				resultBox->Text = currentText;
+			}		
+			if (currentText == "") {
+				resultBox->Text = "0";
 			}
 		}
 		private: System::Void calculate(double num1, double num2, int e) {
@@ -561,11 +703,22 @@ namespace calculator {
 			currentOperation = 0;
 			numOfCalcs = 0;
 		}
-		private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
-			String ^z = e->KeyChar.ToString();
+
+		// --------------------------
+		// KEYBOARD INTERACTIONS
+		// --------------------------
+
+		private: System::Void Form1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+			String^ z = e->KeyChar.ToString();
+			if (e->KeyChar == 8) {
+				removeNum();
+				return;
+			}
+
+
 			if (z == "1" || z == "2" || z == "3" || z == "4" || z == "5" || z == "6" || z == "7" || z == "8" || z == "9") {
-				// next time
+				addNum(z);
 			}
 		}
-};
+	};
 }

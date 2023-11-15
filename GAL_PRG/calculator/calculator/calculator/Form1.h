@@ -612,7 +612,7 @@ namespace calculator {
 		}
 		private: System::Void btn_comma_Click(System::Object^  sender, System::EventArgs^  e) {
 			String ^currentText = resultBox->Text;
-			if (currentText == "0" || error || comma) {
+			if (error || comma) {
 				return;
 			}
 			else {
@@ -634,8 +634,10 @@ namespace calculator {
 				clearResultBox();
 				clear = false;
 			}
+
 			String ^currentText = resultBox->Text;
-			double x = System::Convert::ToDouble(currentText);
+			double x = Convert::ToDouble(currentText);
+			//double x = Convert::ToDouble(currentText, System::Globalization::CultureInfo::InvariantCulture);
 			int numInt = System::Convert::ToInt32(num);
 		
 			if (numInt == 0) {

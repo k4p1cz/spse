@@ -1,9 +1,0 @@
-﻿  stdafx.cpp
-  AssemblyInfo.cpp
-  calculator.cpp
-  Form1.cpp
-  Generování kódu...
-  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Microsoft.Common.CurrentVersion.targets(3049,5): warning MSB3088: Nelze číst v souboru stavu x64\Debug\calculator.vcxproj.GenerateResource.cache. Vstupní proud nemá platný binární formát. Počáteční obsah (v bajtech) je: 06-01-01-00-00-00-01-0A-46-6F-72-6D-31-2E-72-65-73 ...
-  AssemblyInfo.obj : Našel se modul MSIL. Přírůstkové propojování je pro MSIL vypnuté. Provádí se úplné propojení.
-  calculator.vcxproj -> C:\Users\root\Documents\kapitanov\GAL_PRG\calculator\calculator\x64\Debug\calculator.exe

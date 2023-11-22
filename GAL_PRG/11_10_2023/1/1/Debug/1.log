@@ -1,6 +1,0 @@
-﻿  stdafx.cpp
-  AssemblyInfo.cpp
-  _1.cpp
-c1xx : fatal error C1083: Nejde otevřít soubor zdroj: _1.cpp: No such file or directory
-  Form1.cpp
-  Generování kódu...

@@ -1,0 +1,32 @@
+[
+    {
+        "caretX": 23,
+        "caretY": 25,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/11_22_2023/projekt_2/head.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 1
+    },
+    {
+        "caretX": 16,
+        "caretY": 32,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/11_22_2023/projekt_2/func.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 16
+    },
+    {
+        "caretX": 23,
+        "caretY": 41,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/11_22_2023/projekt_2/main.cpp",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 34
+    }
+]

@@ -27,10 +27,10 @@ $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
 funkce.o: funkce.cpp header.h
-	$(CPP) -c C:/vyuka/4/B/blaha/cpp/Komplex/Komplex/funkce.cpp -o funkce.o $(CXXFLAGS) 
+	$(CPP) -c C:/vyuka/4/B/blaha/Komplex/funkce.cpp -o funkce.o $(CXXFLAGS) 
 
 main.o: main.cpp header.h
-	$(CPP) -c C:/vyuka/4/B/blaha/cpp/Komplex/Komplex/main.cpp -o main.o $(CXXFLAGS) 
+	$(CPP) -c C:/vyuka/4/B/blaha/Komplex/main.cpp -o main.o $(CXXFLAGS) 
 
 Komplex_private.res: Komplex_private.rc 
 	$(WINDRES) -i Komplex_private.rc --input-format=rc -o Komplex_private.res -O coff 

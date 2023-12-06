@@ -11,9 +11,14 @@ int main() {
 	
 	cout << "\nAbsolutni hodnota druheho k. cisla: " << druhe.AbsHodnota() << endl;
 
-	cout << "\nSoucet prvniho cisla s druhym cislem\n" << prvni + druhe << endl;
+	cout << "\nSoucet prvniho cisla s druhym cislem: " << prvni + druhe << endl;
 	
-	cout << "\nRozdil druheho cisla s prvnim cislem\n" << prvni - druhe << endl;
+	cout << "\nRozdil druheho cisla s prvnim cislem: " << prvni - druhe << endl;
+	
+	cout << "\nSoucit prvniho cisla s druhym cislem: " << prvni * druhe << endl;
+	
+	cout << "\nPodil prvniho cisla s druhym cislem: " << prvni / druhe << endl;
+	
 	
 	return 0;
 }

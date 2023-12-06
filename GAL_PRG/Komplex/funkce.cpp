@@ -41,3 +41,16 @@ KompCislo operator+(KompCislo const& a, KompCislo const& b){
 KompCislo operator-(KompCislo const& a, KompCislo const& b){
 	return KompCislo((a.Realna - b.Realna),(a.Imaginarni - b.Imaginarni));
 }
+KompCislo operator*(KompCislo const& a, KompCislo const& b){
+	return KompCislo((a.Realna * b.Realna),(a.Imaginarni * b.Imaginarni));
+}
+KompCislo operator/(KompCislo const& a, KompCislo const& b){	
+	return KompCislo((a.Realna * b.Realna + a.Imaginarni * b.Imaginarni) / (pow(b.Realna, 2) + pow(b.Imaginarni, 2)), (a.Imaginarni * b.Realna - a.Realna * b.Imaginarni) / (pow(b.Realna, 2)+pow(b.Imaginarni, 2)));
+}
+
+void KompCislo::KompSdruzene(KompCislo e){
+	KompCislo r;
+	
+	
+	
+}

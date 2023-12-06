@@ -18,6 +18,10 @@ public:
 	float AbsHodnota();
 	friend KompCislo operator+(KompCislo const& a, KompCislo const& b);
 	friend KompCislo operator-(KompCislo const& a, KompCislo const& b);
+	friend KompCislo operator*(KompCislo const& a, KompCislo const& b);
+	friend KompCislo operator/(KompCislo const& a, KompCislo const& b);
+	
+	void KompSdruzene(KompCislo e);
 };
 
 #endif

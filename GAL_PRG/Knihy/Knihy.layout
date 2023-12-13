@@ -1,0 +1,42 @@
+[
+    {
+        "caretX": 12,
+        "caretY": 7,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/Knihy/main.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 1
+    },
+    {
+        "caretX": 12,
+        "caretY": 8,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/Knihy/book.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 1
+    },
+    {
+        "caretX": 20,
+        "caretY": 4,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/Knihy/header.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 1
+    },
+    {
+        "caretX": 1,
+        "caretY": 34,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/Knihy/library.cpp",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 3,
+        "topLine": 1
+    }
+]

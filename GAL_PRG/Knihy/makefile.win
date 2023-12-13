@@ -1,0 +1,38 @@
+# Project: Knihy
+# Makefile created by Red Panda C++ 2.24
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = Knihy_private.res
+OBJ      = main.o func.o $(RES)
+LINKOBJ  = main.o func.o Knihy_private.res
+CLEANOBJ  =  main.o func.o  Knihy_private.res Knihy.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = Knihy.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -D__DEBUG__
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp header.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
+
+func.o: func.cpp header.h
+	$(CPP) -c func.cpp -o func.o $(CXXFLAGS) 
+
+Knihy_private.res: Knihy_private.rc 
+	$(WINDRES) -i Knihy_private.rc --input-format=rc -o Knihy_private.res -O coff $(WINDRESFLAGS) 
+

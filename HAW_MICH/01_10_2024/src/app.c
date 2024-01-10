@@ -9,11 +9,6 @@
 
 #define MAX_VAL 4095
 
-typedef struct{
-	float val;
-	float v;
-}LuxVals;
-
 BOARD_SETUP void setup(void) {
 	SystemCoreClockUpdate();
 	SysTick_Config(SystemCoreClock / 10000);
@@ -57,30 +52,6 @@ void turnOnLeds(int read){
 		io_set(ledky[i], 1);
 	}
 }
-
-LuxVals getLuxVals(){
-	LuxVals e;
-	LCD_set(LCD_CUR_OFF);
-	LCD_set(LCD_LINE1);
-	uint16_t read;
-	float volts;
-	do{
-		read = ADC_read();
-	}while(!read);
-	char lcd_print[8];
-	volts = (read / 4095.0) * 3.3;
-	sprintf(lcd_print,"%.3f V", volts);
-	LCD_print(lcd_print);
-	LCD_set(LCD_LINE2);
-	sprintf(lcd_print,"%d      ", read);
-	LCD_print(lcd_print);	
-	delay_ms(1);
-	turnOnLeds(read);
-	e.v = volts * 1.0;
-	e.val = read * 1.0;
-	return e;
-}
-
 
 int err = 1;
 char clear[100] = "\033[2J\033[1;1H";

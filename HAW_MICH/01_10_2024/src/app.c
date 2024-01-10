@@ -95,7 +95,6 @@ void sample(int n, int avg){
 		do{
 			read = ADC_read();
 		}while(!read);
-		char lcd_print[8];
 		if(voltsSwitch == 1){
 			volts = ((read / 4095.0) * 3.3) * 1000;
 			if(avg == 1){

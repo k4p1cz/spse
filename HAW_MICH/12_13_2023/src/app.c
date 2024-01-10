@@ -87,7 +87,6 @@ void KAP_read(int r){
 		snprintf(txt, 32, "%d, %.3f V\r\n", read, volts);
 		int len = strlen(txt);
 		UART_write(txt, len); 
-	
 	}
 }
 
@@ -133,23 +132,27 @@ char line[100] = "\r\n";
 
 int main(void) {
 	UART_write(clear, strlen(clear));
-	
+	char res[100];
+	char cmd[10];
+	int param;
+	int numOfArgs;
 	while (1) {
 		if(page == 0){
 			err = 1;
 			//UART_write(clear, strlen(clear));
 			UART_write(url, strlen(url));
-			char res[100];
+			memset(res, 0, sizeof(res));
 			UART_read(res, 100);
 			//UART_write(line, strlen(line));
-			char cmd[10];
-			int param;
-			int numOfArgs = 0;
+			memset(cmd, 0, sizeof(cmd));
+			param = 0;
+			numOfArgs = 0;
 			numOfArgs = sscanf(res, "%s %d", cmd, &param);
 			
 			if(0 == strcmp("clear", cmd)){
 				UART_write(clear, strlen(clear));
 				err = 0;
+				
 			}
 			if(0 == strcmp("read", cmd)){
 				if(numOfArgs == 1){

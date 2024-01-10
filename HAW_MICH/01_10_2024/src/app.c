@@ -88,7 +88,7 @@ void lcdPrint(char print[8]){
 void sample(int n, int avg){
 	int avgLength = 0;
 	float avgArr[100];
-	int len;
+	int len; 
 	for(int i = 0; i < n; i++){
 		uint16_t read;
 		float volts;

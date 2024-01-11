@@ -59,7 +59,7 @@ int restTimer = 0;
 int timerSeconds = 0;
 int cycle = 0; // 0 work , 1 rest
 int pause = 0; 
-	
+int countCycles = 0;
 	
 
 #define LCD_8x2 (((LCD_COLS) == 8) && ((LCD_ROWS) == 2))
@@ -71,12 +71,31 @@ __task void buttonPause(){
 			pause ^= 1;
 			int led = pause;
 			led ^= 1;
-			io_set(cycle?LED_EX_0 : LED_EX_3, pause);
+			//io_set(cycle?LED_EX_0 : LED_EX_3, pause);
 			io_set(LED_EX_2, led);
 			io_set(LED_EX_1, led);
 			os_sem_wait(&semaphore, 0xffff);
 			LCD_set(LCD_LINE1);
-			LCD_print(pause?cycle?"PAUSED        " : "PAUSED        " : cycle?"REST         " : "WORK        ");
+			//LCD_print(pause?cycle?"PAUSED        " : "PAUSED        " : cycle?"REST         " : "WORK        ");
+			if(pause == 1){
+				LCD_print("PAUSED      "):
+			}else{
+				switch(cycle){
+					case 0:
+						LCD_print("WORK      ");
+						io_set(LED_EX_0, pause);
+					break;
+					case 1:
+						LCD_print("REST        ");
+						io_set(LED_EX_3, pause);
+					break;
+					case 2:
+						LCD_print("LONGREST");
+						io_set(LED_EX_2, pause);
+						io_set(LED_EX_1, pause);
+					break;
+				}
+			}
 			os_sem_send(&semaphore);
 			delay_ms(500);
 		}
@@ -108,6 +127,8 @@ __task void timer(void){
 	int mins, secs;
 	
 	io_set(LED_EX_0, 1);
+	io_set(LED_EX_1, 1);
+	io_set(LED_EX_2, 1);
 	io_set(LED_EX_3, 1);
 	io_set(cycle?LED_EX_0 : LED_EX_3, 0);
 	
@@ -126,7 +147,6 @@ __task void timer(void){
 		os_sem_send(&semaphore);
 		delay_ms(1000);
 	}
-	//id_timer = os_tsk_create(timer, 0);
 	if(cycle == 0){
 		cycle = 1;
 		timerSeconds = restTimer;

@@ -65,6 +65,7 @@ int pause = 0;
 #define LCD_8x2 (((LCD_COLS) == 8) && ((LCD_ROWS) == 2))
 
 __task void buttonPause(){
+	delay_ms(500);
 	for(;;){
 		if(io_read(USER_BUTTON)){
 			pause ^= 1;
@@ -73,8 +74,11 @@ __task void buttonPause(){
 			io_set(cycle?LED_EX_0 : LED_EX_3, pause);
 			io_set(LED_EX_2, led);
 			io_set(LED_EX_1, led);
-			LCD_print("PAUSED");
-			delay(1000);
+			os_sem_wait(&semaphore, 0xffff);
+			LCD_set(LCD_LINE1);
+			LCD_print(pause?cycle?"PAUSED        " : "PAUSED        " : cycle?"REST         " : "WORK        ");
+			os_sem_send(&semaphore);
+			delay_ms(500);
 		}
 	}
 }
@@ -113,12 +117,13 @@ __task void timer(void){
 		mins = timerSeconds/60;
 		secs = timerSeconds%60;
 		LCD_set(LCD_LINE1);
+		os_sem_wait(&semaphore, 0xffff);
 		LCD_print(cycle?"REST     ":"WORK      ");
 		LCD_print("ZBYVA:   ");
 		LCD_set(LCD_LINE2);
 		snprintf(l1, 9, "%d:%d      ", mins, secs);
 		LCD_print(l1);
-		
+		os_sem_send(&semaphore);
 		delay_ms(1000);
 	}
 	//id_timer = os_tsk_create(timer, 0);

@@ -2,5 +2,5 @@
 
 ## Zadani a progress
 
-1. Na LCD zobrazte cas (sekundy)
-2. Pomoci tlacitka (interruptu viz. kod) rosvecujte ledky - interni i externi
+1. Na LCD zobrazte cas (sekundy) - **HOTOVO**
+2. Pomoci tlacitka (interruptu viz. kod) rosvecujte ledky - interni i externi - **HOTOVO**

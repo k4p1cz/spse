@@ -1,29 +1,8 @@
-/**
-  ******************************************************************************
-  * @file     STM32_00_HelloWorld_03-userButton.c
-  * @author   SPSE Havirov
-  * @version  0.9
-  * @date     11-March-2022 [v0.9]
-  * @brief    Pri stisku uzivatelskeho tlacitka se meni rychlost blikani LED.
-  *
-  * !!! PROZATIM FUNKCNI JEN PRO F407 !!!
-  *
-  ******************************************************************************
-  * @attention
-  *
-  * Otestovano na: F407
-  *
-  * Netestovano: F401, F411, G071, L152
-  *
-  ******************************************************************************
-*/
-
 #include "stm32_kit.h"
 #include "stm32_kit/led.h"
 #include "stm32_kit/button.h"
-
-#define LED_BLINK_STEP  1000
-volatile uint16_t step = LED_BLINK_STEP; 
+#include "stm32_kit/lcd.h"
+#include <stdio.h>
 
 const enum pin ledky_in[] = {
     LED_IN_0,
@@ -32,7 +11,6 @@ const enum pin ledky_in[] = {
     LED_IN_3,
     P_INVALID
 };
-
 const enum pin ledky_ex[] = {
     LED_EX_0,
     LED_EX_1,
@@ -41,12 +19,16 @@ const enum pin ledky_ex[] = {
     P_INVALID
 };
 
+#define LED_BLINK_STEP  50              
+volatile uint16_t step = LED_BLINK_STEP; 
+
 BOARD_SETUP void setup(void) {
-  SystemCoreClockUpdate();                     // Do SystemCoreClock se nahraje frekvence jadra.
-  SysTick_Config(SystemCoreClock / 10000);     // Konfigurace SysTick timeru.
+  SystemCoreClockUpdate();    
+  SysTick_Config(SystemCoreClock / 10000); 
   
   LED_setup();
   BTN_setup();
+	LCD_setup();
   
   //=== Nastaveni prerusovaciho systemu - prozatim pouze pro F407 - ZACATEK
   RCC->APB2ENR |= (1UL << 14);          // Enable SYSCNFG
@@ -59,21 +41,54 @@ BOARD_SETUP void setup(void) {
   //=== Nastaveni prerusovaciho systemu - prozatim pouze pro F407 - KONEC
 }
 
-void LED_toggle(const pin_t leds[], int state, int delay) {
+/*void LED_toggle(const pin_t leds[], int state, int delay) {
   for (int i = 0; leds[i] != P_INVALID; i++) {
     io_set(leds[i], state);
     delay_ms(delay);
   }
+}*/
+
+int sec = 0;
+int ledsOn = 0;
+int operation = 0; // 0 - +, 1 - -
+
+void ledToggle(){
+	for(int i = 0; i < 4; i++){
+		io_set(ledky_in[i], 0);
+		io_set(ledky_ex[i], 1);
+	}
+	for(int i = 0; i < ledsOn; i++){
+		if(i < 4){
+			io_set(ledky_in[i], 1);
+		}
+		if(ledsOn > 3){
+			io_set(ledky_ex[i - 4], 0);
+		}
+	}
+	if(ledsOn > 7 && operation == 0){
+		operation = 1;
+	}else if(ledsOn == 0 && operation == 1){
+		operation = 0;
+	}
+	
+	
+	if(operation == 0){
+		ledsOn++;
+	}else{
+		ledsOn--;
+	}
 }
 
 int main(void) {
-  uint8_t i;
-
-  while (1) {
-      LED_toggle(ledky_in, 1, step); // Rozsviceni vestavenych LED.
-      LED_toggle(ledky_ex, 0, step); // Rozsviceni externich LED.
-      LED_toggle(ledky_in, 0, step); // Zhasnuti vestavenych LED.
-      LED_toggle(ledky_ex, 1, step); // Zhasnuti externich LED.
+	LCD_set(LCD_LINE1);
+	LCD_set(LCD_CUR_OFF);
+  char print[9];
+	while (1) {
+		LCD_set(LCD_LINE1);
+		snprintf(print, 9, "  %d     ", sec);
+		LCD_print(print);
+    sec++;
+		delay_ms(1000);
   }
 
   // return 0;
@@ -84,9 +99,10 @@ void EXTI0_IRQHandler(void) {
   if (EXTI->PR & (1UL << 0)) {
     // EXTI0 interrupt pending?                        
     EXTI->PR |= (1UL << 0); // Clear pending interrupt
-
+		
     step /= 2;
-    if (step < 100) {
+    if (step < 26) {
+			ledToggle();
       step = LED_BLINK_STEP;
     }
   }

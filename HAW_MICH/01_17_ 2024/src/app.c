@@ -85,8 +85,10 @@ int main(void) {
   char print[9];
 	while (1) {
 		LCD_set(LCD_LINE1);
-		snprintf(print, 9, "  %d     ", sec);
+		snprintf(print, 9, "   %d    ", sec);
 		LCD_print(print);
+		LCD_set(LCD_LINE2);
+		LCD_print(" sekund ");
     sec++;
 		delay_ms(1000);
   }

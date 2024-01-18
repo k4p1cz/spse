@@ -111,7 +111,7 @@ int main(void) {
     LCD_set(LCD_CUR_BLINK);
 
     //#=== Pro zmacknutou klavesu se vypise prislusny znak (omezeni vypisu podle rozliseni LCD) - ZACATEK
-    uint8_t znak;
+		
 
     for (int i = 0; i < (2 * LCD_COLS); i++) {
       if (LCD_COLS == i) {

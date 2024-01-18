@@ -18,3 +18,6 @@ Vytvorte seriovy terminal pro zarizeni, ktere obslouzi prikazy:
 
 8. Pred vstupem do zarizeni je treba aktivovat pin na KBD : 1337 - **hotovo**
 9. Prijem na UARTu pomoci UART_getc() a UART_putc() - **hotovo**
+
+## Poznamky
+- Pridat hlasku "invalid command"/"invalid arguments"

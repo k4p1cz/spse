@@ -70,6 +70,7 @@ char url[100] = "root@stm32:/dev/adc/ ";
 char enUrl[100] = "root@stm32:/dev/adc/en/ ";
 char line[100] = "\r\n";
 char wrongPass[100] = "Wrong password!";
+int ledsBlinking = 0;
 	
 __task void terminalProcess(){
 	char buff[999];
@@ -111,9 +112,27 @@ __task void terminalProcess(){
 					}
 					buff_len = 0;
 				}else if(enMode == 1){
-					numOfArgs = sscanf(buff, "%s %s %s", cmd, param1, param2);
+					int enNumOfArgs = sscanf(buff, "%s %s %s", cmd, param1, param2);
+					//numOfArgs = sscanf(buff, "%s %s %s", cmd, param1, param2);
 					if(strcmp("blink", cmd)){
-						
+						if(enNumOfArgs < 3){
+								// pridat invalid command
+						}else if(atoi(param1) > 4){
+							// invalid command
+						}else if(atoi(param2) == 0){
+							ledConfig.turnedOnLeds--;
+							ledConfig.leds[atoi(param1)] = 0;
+							ledConfig.periods[atoi(param1)] = 0;
+							if(ledConfig.turnedOnLeds == 0){
+								// vypnout global task 
+						}else{ ///// VYRESIT problem 1 tasku - moznost rozdelit do 4 tasku a upravit tento kod
+							if(ledConfig.turnedOnLeds == 0){
+								// zapnout global task
+							}
+							ledConfig.turnedOnLeds++;
+							ledConfig.leds[atoi(param1)] = 1;
+							ledConfig.periods[atoi(param1)] = atoi(param2);
+						}
 					}
 					
 					
@@ -184,7 +203,8 @@ __task void terminalProcess(){
 		buff_len++;
 	}
 }
-	
+
+
 __task void initialCodeEntry() {
 	LCD_set(LCD_LINE1);
 	LCD_print("PIN:");

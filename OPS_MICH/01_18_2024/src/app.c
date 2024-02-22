@@ -62,14 +62,15 @@ LED_CONFIG ledConfig;
 IP_ROUTE_CONFIG ipRouteConfig;
 
 
-void showConfiguration();
+void showConfiguration(int e);
 
 	
 char clear[100] = "\033[2J\033[1;1H";
 char url[100] = "root@stm32:/dev/adc/ ";
 char enUrl[100] = "root@stm32:/dev/adc/en/ ";
-char line[100] = "\r\n";
+char line[100] = "\n\r";
 char wrongPass[100] = "Wrong password!";
+char invalidCommand[100] = "ESC[30mInvalid command! \r\n";
 int ledsBlinking = 0;
 	
 __task void terminalProcess(){
@@ -89,11 +90,9 @@ __task void terminalProcess(){
 			case '\b':
 				buff_len--;
 				buff[buff_len] = 0x00;
-				continue;
 			break;
 			case 0x0D:
-				UART_write(line, strlen(line));
-				
+				//UART_write(line, strlen(line));
 				if(showMode == 1){
 					numOfArgs = sscanf(buff, "%s %s", cmd, param1);
 					if(0 == strcmp("config", cmd)){
@@ -116,7 +115,7 @@ __task void terminalProcess(){
 					//numOfArgs = sscanf(buff, "%s %s %s", cmd, param1, param2);
 					if(strcmp("blink", cmd)){
 						if(enNumOfArgs < 3){
-								// pridat invalid command
+							UART_write(invalidCommand, strlen(invalidCommand));
 						}else if(atoi(param1) > 4){
 							// invalid command
 						}else if(atoi(param2) == 0){
@@ -134,12 +133,13 @@ __task void terminalProcess(){
 							ledConfig.periods[atoi(param1)] = atoi(param2);
 						}
 					}
+				}
 					
 					
 					UART_write(line, strlen(line));
 					UART_write(enUrl, strlen(enUrl));
 					buff_len = 0;
-				}else if(enPassMode == 1){
+					}else if(enPassMode == 1){
 					numOfArgs = sscanf(buff, "%s", cmd);
 					char setPass[5];
 					memset(setPass, 0x00, 5);
@@ -181,31 +181,20 @@ __task void terminalProcess(){
 					}
 				}
 			
-			
-				
-				
-			
-				/*for(int i = 0; i < buff_len; i++){
-					UART_putc(buff[i]);
-				}*/
-				
 				memset(buff, 0x00, 999);
 				memset(cmd, 0x00, 100);
 				memset(param1, 0x00, 100);
 				memset(param2, 0x00, 100);
-
-				continue;
 			break;
 		}
 		UART_putc(e);
-		
 		buff[buff_len] = e;
 		buff_len++;
 	}
 }
 
 
-__task void initialCodeEntry() {
+__task void initialCodeEntry(){
 	LCD_set(LCD_LINE1);
 	LCD_print("PIN:");
 	int numOfChars = 0;
@@ -231,7 +220,7 @@ __task void initialCodeEntry() {
 			LCD_print("PIN:");
 			numOfChars = 0;
 		}
-	}
+	}	
 }
 
 __task void setup() {
@@ -293,6 +282,5 @@ void showConfiguration(int e){
 			UART_write(globalConfig.volts?"ON" : "OFF", 3);
 			
 		break;
-	}	
+	}
 }
-

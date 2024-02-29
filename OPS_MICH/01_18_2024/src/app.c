@@ -9,6 +9,7 @@
 #include "stm32_kit/lcd.h"
 #include "stm32_kit/keypad.h"
 #include "stm32_kit/uart.h"
+#include "stm32_kit/led.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -37,6 +38,13 @@
   };
 #endif
 	
+const enum pin ex_ledky[] = {
+    LED_EX_3,
+    LED_EX_2,
+    LED_EX_1,
+    LED_EX_0
+};
+	
 typedef struct{
 	int enablePass;
 	int intrfLoopbackIp[4];
@@ -55,7 +63,10 @@ typedef struct{
 
 OS_TID tsk_initialCodeEntry;
 OS_TID tsk_terminalProcess;
-
+OS_TID tsk_firstLed;
+OS_TID tsk_led_2;
+OS_TID tsk_led_3;
+OS_TID tsk_led_4;
 
 CONFIG globalConfig;
 LED_CONFIG ledConfig;
@@ -64,14 +75,40 @@ IP_ROUTE_CONFIG ipRouteConfig;
 
 void showConfiguration(int e);
 
+
+__task void firstLedTask(){
+	for(;;){
+		//int time = ledConfig.periods[0];
+		io_set(ex_ledky[0], 0);
+		delay_ms(1000);
+		io_set(ex_ledky[0], 1);
+		delay_ms(1000);
+	}
+}
+__task void secondLed(){
+	for(;;){
+	
+	}
+}
+__task void thirdLed(){
+	for(;;){
+	
+	}
+}
+__task void fourthLed(){
+	for(;;){
+	
+	}
+}
 	
 char clear[100] = "\033[2J\033[1;1H";
 char url[100] = "root@stm32:/dev/adc/ ";
 char enUrl[100] = "root@stm32:/dev/adc/en/ ";
-char line[100] = "\n\r";
+char line[100] = "\r\n";
 char wrongPass[100] = "Wrong password!";
 char invalidCommand[100] = "ESC[30mInvalid command! \r\n";
 int ledsBlinking = 0;
+	
 	
 __task void terminalProcess(){
 	char buff[999];
@@ -113,51 +150,64 @@ __task void terminalProcess(){
 				}else if(enMode == 1){
 					int enNumOfArgs = sscanf(buff, "%s %s %s", cmd, param1, param2);
 					//numOfArgs = sscanf(buff, "%s %s %s", cmd, param1, param2);
-					if(strcmp("blink", cmd)){
+					if(0 == strcmp("blink", cmd)){
 						if(enNumOfArgs < 3){
 							UART_write(invalidCommand, strlen(invalidCommand));
-						}else if(atoi(param1) > 4){
-							// invalid command
+						}else if(atoi(param1) > 4 || atoi(param1) < 1){
+							UART_write(invalidCommand, strlen(invalidCommand));
 						}else if(atoi(param2) == 0){
-							ledConfig.turnedOnLeds--;
-							ledConfig.leds[atoi(param1)] = 0;
-							ledConfig.periods[atoi(param1)] = 0;
-							if(ledConfig.turnedOnLeds == 0){
-								// vypnout global task 
-						}else{ ///// VYRESIT problem 1 tasku - moznost rozdelit do 4 tasku a upravit tento kod
-							if(ledConfig.turnedOnLeds == 0){
-								// zapnout global task
+							int id = (atoi(param1)) - 1;
+							if(id == 0){
+								//os_tsk_delete(tsk_firstLed);
+							}else if(id == 1){
+								//os_tsk_delete(tsk_led_2);
+							}else if(id == 2){
+								//os_tsk_delete(tsk_led_3);
+							}else if(id == 3){
+								//os_tsk_delete(tsk_led_4);
 							}
+							ledConfig.turnedOnLeds--;
+							ledConfig.leds[atoi(param1)-1] = 0;
+							ledConfig.periods[atoi(param1)-1] = 0;
+						}else{
 							ledConfig.turnedOnLeds++;
-							ledConfig.leds[atoi(param1)] = 1;
-							ledConfig.periods[atoi(param1)] = atoi(param2);
+							int id = (atoi(param1)) - 1;
+							ledConfig.leds[id] = 1;
+							ledConfig.periods[id] = atoi(param2);
+							/*if(id == 0){
+								tsk_led_1 = os_tsk_create(firstLed, 0);
+							}else if(id == 1){
+								tsk_led_2 = os_tsk_create(secondLed, 0);
+							}else if(id == 2){
+								tsk_led_3 = os_tsk_create(thirdLed, 0); 
+							}else if(id == 3){
+								tsk_led_4 = os_tsk_create(fourthLed, 0);
+							}*/
+							tsk_firstLed = os_tsk_create(firstLedTask, 1);
 						}
-					}
-				}
-					
-					
+					}	
 					UART_write(line, strlen(line));
 					UART_write(enUrl, strlen(enUrl));
 					buff_len = 0;
-					}else if(enPassMode == 1){
-					numOfArgs = sscanf(buff, "%s", cmd);
-					char setPass[5];
-					memset(setPass, 0x00, 5);
-					snprintf(setPass, 5, "%d", globalConfig.enablePass);
-					if(0 == strcmp(cmd, setPass)){
-						enPassMode = 0;
-						enMode = 1;
-						UART_write(line, strlen(line));
-						UART_write(enUrl, strlen(enUrl));
-						buff_len = 0;
-					}else{
-						//UART_write(line, strlen(line));
-						UART_write(wrongPass, strlen(wrongPass));
-						UART_write(line, strlen(line));
-						UART_write(line, strlen(line));
-						UART_write("Enter password: ", 16);
-						buff_len = 0;
-					} 
+				}else if(enPassMode == 1){
+						numOfArgs = sscanf(buff, "%s", cmd);
+						char setPass[5];
+						memset(setPass, 0x00, 5);
+						snprintf(setPass, 5, "%d", globalConfig.enablePass);
+						if(0 == strcmp(cmd, setPass)){
+							enPassMode = 0;
+							enMode = 1;
+							UART_write(line, strlen(line));
+							UART_write(enUrl, strlen(enUrl));
+							buff_len = 0;
+						}else{
+							//UART_write(line, strlen(line));
+							UART_write(wrongPass, strlen(wrongPass));
+							UART_write(line, strlen(line));
+							UART_write(line, strlen(line));
+							UART_write("Enter password: ", 16);
+							buff_len = 0;
+						} 
 				}else{
 					numOfArgs = sscanf(buff, "%s %s", cmd, param1);
 					if(0 == strcmp("clear", cmd)){
@@ -186,10 +236,12 @@ __task void terminalProcess(){
 				memset(param1, 0x00, 100);
 				memset(param2, 0x00, 100);
 			break;
+			default:
+				UART_putc(e);
+				buff[buff_len] = e;
+				buff_len++;
+				break;
 		}
-		UART_putc(e);
-		buff[buff_len] = e;
-		buff_len++;
 	}
 }
 
@@ -227,6 +279,7 @@ __task void setup() {
 	KBD_setup();
 	LCD_setup();
 	UART_setup();
+	LED_setup();
 
 	globalConfig.enablePass = 1234;
 	memset(globalConfig.intrfLoopbackIp, 0x00, 4);

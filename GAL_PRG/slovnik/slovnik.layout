@@ -1,0 +1,52 @@
+[
+    {
+        "caretX": 18,
+        "caretY": 23,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/slovnik/utils.c",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 4,
+        "topLine": 1
+    },
+    {
+        "caretX": 29,
+        "caretY": 9,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/slovnik/headers.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 25
+    },
+    {
+        "caretX": 76,
+        "caretY": 197,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/slovnik/dictHandler.c",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 3,
+        "topLine": 191
+    },
+    {
+        "caretX": 21,
+        "caretY": 34,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/slovnik/userMenu.c",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 16
+    },
+    {
+        "caretX": 2,
+        "caretY": 4,
+        "filename": "C:/Users/root/Documents/kapitanov/GAL_PRG/slovnik/main.c",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 1
+    }
+]

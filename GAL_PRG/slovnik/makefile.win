@@ -1,0 +1,44 @@
+# Project: slovnik
+# Makefile created by Red Panda C++ 2.24
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = slovnik_private.res
+OBJ      = utils.o dictHandler.o userMenu.o main.o $(RES)
+LINKOBJ  = utils.o dictHandler.o userMenu.o main.o slovnik_private.res
+CLEANOBJ  =  utils.o dictHandler.o userMenu.o main.o  slovnik_private.res slovnik.exe
+LIBS     =  -s
+INCS     =  
+CXXINCS  =  
+BIN      = slovnik.exe
+CXXFLAGS = $(CXXINCS)  -O2 -pipe
+CFLAGS   = $(INCS)  -O2 -pipe
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+utils.o: utils.c headers.h
+	$(CC) -c utils.c -o utils.o $(CFLAGS) 
+
+dictHandler.o: dictHandler.c headers.h
+	$(CC) -c dictHandler.c -o dictHandler.o $(CFLAGS) 
+
+userMenu.o: userMenu.c headers.h
+	$(CC) -c userMenu.c -o userMenu.o $(CFLAGS) 
+
+main.o: main.c headers.h
+	$(CC) -c main.c -o main.o $(CFLAGS) 
+
+slovnik_private.res: slovnik_private.rc 
+	$(WINDRES) -i slovnik_private.rc --input-format=rc -o slovnik_private.res -O coff $(WINDRESFLAGS) 
+

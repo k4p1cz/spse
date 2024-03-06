@@ -1,0 +1,7 @@
+one;jedna;2;
+two;dva;2;
+apple;jablko;3;
+test;test;3;
+three;tri;2;
+four;ctyri;2;
+back;zpet;3;

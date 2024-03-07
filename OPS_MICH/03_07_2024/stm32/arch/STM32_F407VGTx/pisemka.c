@@ -20,8 +20,11 @@ typedef struct{
 
 char newLine[100] = "\r\n";
 char clear[100] = "\033[2J\033[1;1H";
+char ipLoaded[100] = "IP loaded!\r\n";
+char maskLoaded[100] = "Mask loaded!\r\n";
 
 addressInfo calculateInfo(char ip[], char mask[]);
+void displayInfo(addressInfo e);
 
 __task void uartProcessFunc(){
 	addressInfo info;
@@ -47,34 +50,38 @@ __task void uartProcessFunc(){
 				if(strcmp(buff, "clear") == 0){
 					UART_write(clear, strlen(clear));
 				}
-				if(enteredDetails == 0){
-					numOfArgs = sscanf(buff, "%s %s", cmd, ip); // rozdelim si buffer do nekolika casti
-					if(numOfArgs > 1){
+					numOfArgs = sscanf(buff, "%s %s %s", cmd, ip, mask_); // rozdelim si buffer do nekolika casti
+					if(numOfArgs > 2){
 						if(0 == strcmp(cmd, "ip")){ // overuju, jestli command, co uzivatel zadal je ip
 							UART_write(newLine, strlen(newLine));
 							enteredIP = 1;
 							strcpy(ip_, ip);
-							if(enteredIP == 1 && enteredMask == 1){
+							UART_write(ipLoaded, strlen(ipLoaded));
+							//if(enteredIP == 1 && enteredMask == 1){
 								info = calculateInfo(ip_, mask_);
 								enteredDetails = 1;
-							}
+
+							//}
 						}
-						if(0 == strcmp(cmd, "mask")){
+						/*if(0 == strcmp(cmd, "mask")){
 							UART_write(newLine, strlen(newLine));
 							enteredMask = 1;
-							strcpy(mask_, ip);
+							strncpy(mask_, ip, 100);
+							UART_write(maskLoaded, strlen(maskLoaded));
 							if(enteredIP == 1 && enteredMask == 1){
 								info = calculateInfo(ip_, mask_);
 								enteredDetails = 1;
+								
 							}
-						}
+						}*/
+					} // pokud jiz mame vsechny detaily
+					if(0 == strcmp(buff, "show")){
+						displayInfo(info);
 					}
-				}else{ // pokud jiz mame vsechny detaily
-				
-				}
 				// vycistim si pole buffer a pole command
 				memset(buff, 0x00, 999);
 				memset(cmd, 0x00, 100);
+				memset(ip, 0x00, 100);
 			break;
 			default: // pokud ne backspace ani enter - vypsat znak a ulozit si ho do bufferu
 				UART_putc(e);
@@ -143,7 +150,20 @@ addressInfo calculateInfo(char ip[], char mask[]){
 	
 	return rtrn;
 }
+void displayInfo(addressInfo e){
+	int i;
+	UART_write(newLine, strlen(newLine));
+	char ip[100];
+	char mask[100];
+	sprintf(ip, "IP: %d.%d.%d.%d", e.ip[0], e.ip[1], e.ip[2], e.ip[3]);
+	UART_write(ip, strlen(ip));
+	UART_write(newLine, strlen(newLine));
+	sprintf(mask, "Mask: %d.%d.%d.%d", e.mask[0], e.mask[1], e.mask[2], e.mask[3]); 
+	UART_write(mask, strlen(mask));
+	UART_write(newLine, strlen(newLine));
 
+
+}
 
 
 __task void setup() {

@@ -21,7 +21,10 @@ typedef struct{
 char newLine[100] = "\r\n";
 char clear[100] = "\033[2J\033[1;1H";
 
+addressInfo calculateInfo(char ip[], char mask[]);
+
 __task void uartProcessFunc(){
+	addressInfo info;
 	char buff[999];
 	int buff_len = 0;
 	uint8_t e;
@@ -29,6 +32,8 @@ __task void uartProcessFunc(){
 	int enteredDetails = 0;
 	int enteredIP = 0;
 	int enteredMask = 0;
+	char ip_[100];
+	char mask_[100];
 	char cmd[100];
 	char ip[100];
 	for(;;){
@@ -48,14 +53,24 @@ __task void uartProcessFunc(){
 						if(0 == strcmp(cmd, "ip")){ // overuju, jestli command, co uzivatel zadal je ip
 							UART_write(newLine, strlen(newLine));
 							enteredIP = 1;
+							strcpy(ip_, ip);
 							if(enteredIP == 1 && enteredMask == 1){
-								// process
+								info = calculateInfo(ip_, mask_);
+								enteredDetails = 1;
 							}
 						}
 						if(0 == strcmp(cmd, "mask")){
-						
+							UART_write(newLine, strlen(newLine));
+							enteredMask = 1;
+							strcpy(mask_, ip);
+							if(enteredIP == 1 && enteredMask == 1){
+								info = calculateInfo(ip_, mask_);
+								enteredDetails = 1;
+							}
 						}
 					}
+				}else{ // pokud jiz mame vsechny detaily
+				
 				}
 				// vycistim si pole buffer a pole command
 				memset(buff, 0x00, 999);
@@ -69,6 +84,67 @@ __task void uartProcessFunc(){
 		}
 	}
 }
+
+addressInfo calculateInfo(char ip[], char mask[]){
+	addressInfo rtrn;
+	int i;
+	char *token = strtok(ip, ".");
+	char *token2 = strtok(mask, ".");
+	for(i=0; i<4; i++){
+		rtrn.ip[i] = atoi(token);
+		rtrn.mask[i] = atoi(token2);
+		token = strtok(NULL, ".");
+		token2 = strtok(NULL, ".");
+	}
+	
+	rtrn.blockSize = 256-rtrn.mask[3];
+	rtrn.numOfAddress = rtrn.blockSize;
+	rtrn.numOfHosts	= rtrn.blockSize-2;
+	rtrn.networkIP[0] = rtrn.ip[0];
+	rtrn.networkIP[1] = rtrn.ip[1];
+	rtrn.networkIP[2] = rtrn.ip[2];
+	rtrn.networkIP[3] = 0;
+	switch(rtrn.mask[3]){
+		case 0:
+			rtrn.CIDR = 24;
+			break;
+		case 128:
+			rtrn.CIDR = 25;
+			break;
+		case 192:
+			rtrn.CIDR = 26;
+			break;
+		case 224:
+			rtrn.CIDR = 27;
+			break;
+		case 240:
+			rtrn.CIDR = 28;
+			break;
+		case 248:
+			rtrn.CIDR = 39;
+			break;
+		case 252:
+			rtrn.CIDR = 30;
+			break;
+		case 254:
+			rtrn.CIDR = 31;
+			break;
+		case 255:
+			rtrn.CIDR = 32;
+			break;
+	}
+	
+	rtrn.hosts[0] = rtrn.networkIP[3]+1;
+	rtrn.hosts[1] = rtrn.mask[3]-2;
+	rtrn.broadcastIP[0] =	rtrn.ip[0];
+	rtrn.broadcastIP[0] =	rtrn.ip[1];
+	rtrn.broadcastIP[0] =	rtrn.ip[2];
+	rtrn.broadcastIP[0] = rtrn.mask[3]-1;
+	
+	return rtrn;
+}
+
+
 
 __task void setup() {
 	UART_setup();

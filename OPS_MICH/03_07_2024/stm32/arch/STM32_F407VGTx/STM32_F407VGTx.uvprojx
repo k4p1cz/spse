@@ -1113,9 +1113,9 @@
           <GroupName>src</GroupName>
           <Files>
             <File>
-              <FileName>app.c</FileName>
+              <FileName>pisemka.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\src\app.c</FilePath>
+              <FilePath>..\..\..\src\pisemka.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1145,7 +1145,7 @@
                     <PlainCh>2</PlainCh>
                     <Ropi>2</Ropi>
                     <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
+                    <wLevel>2</wLevel>
                     <uThumb>2</uThumb>
                     <uSurpInc>2</uSurpInc>
                     <uC99>2</uC99>

@@ -18,6 +18,7 @@ architecture Behavioral of app is
 signal pattern: STD_LOGIC_VECTOR (7 downto 0) := (others => '0'); -- interni promenna
 signal direction: STD_LOGIC := '0'; -- interni promenna
 -- ":=" pouzivame proto, jelikoz : je PRIRAZENI
+signal delay : natural := 100;
 begin
 	process(clk, ce, input, clear, left, right, set) -- process pouzivame, 
 	begin
@@ -32,13 +33,18 @@ begin
 				elsif right = '1' then
 					direction <= '1';
 				else
-					if direction = '0' then
-						pattern <= pattern(6 downto 0) & pattern(7); -- posunuti o jedno do leva 
+					if delay = 0 then
+						if direction = '0' then
+							pattern <= pattern(6 downto 0) & pattern(7); -- posunuti o jedno do leva 
+						else
+							pattern <= pattern(0) & pattern(7 downto 1); -- posunuti o jedno do prava
+						end if;
+						-- & = PRILEPIT
+						-- nejprve kopirujeme prvnich x bitu a k tomu priradime 0/7 bit
+						delay <= 100;
 					else
-						pattern <= pattern(7 downto 1) & pattern(0); -- posunuti o jedno do prava
+						delay <= delay - 1;
 					end if;
-					-- & = PRILEPIT
-					-- nejprve kopirujeme prvnich x bitu a k tomu priradime 0/7 bit
 				end if;
 			end if;
 		end if;

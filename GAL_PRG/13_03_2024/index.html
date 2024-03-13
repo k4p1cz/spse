@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kapitanov</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <main>
+      <div class="data">
+        <div class="header">
+          <div class="wrapper">
+            <p>ID</p>
+            <p>NAME</p>
+            <p>CITY</p>
+            <p>AGE</p>
+          </div>
+        </div>
+        <div class="body">
+          <div class="wrapper" id="dataWrapper">
+
+          </div>
+        </div>
+      </div>
+      <div class="form">
+        <div class="wrapper">
+          <form id="addData__form">
+            <div class="item">
+              <label for="form__name">Name:</label>
+                <input type="text" id="form__name" placeholder="Name..." required>
+            </div>
+            <div class="item">
+              <label for="form__city">City:</label>
+              <input type="text" id="form__city" placeholder="City..." required>
+            </div>
+            <div class="item">
+              <label for="form__age">Age:</label>
+              <input type="number" id="form__age" placeholder="00" required>
+            </div>
+            <button type="submit">SUBMIT</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="js/app.js"></script>
+</html>

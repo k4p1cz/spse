@@ -1,0 +1,61 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/*<main>
+  <div class="data">
+    <div class="header">
+      <div class="wrapper">
+
+      </div>
+    </div>
+    <div class="body">
+      <div class="wrapper" id="dataWrapper">
+
+      </div>
+    </div>*/
+main{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10vw;
+  padding: 1rem;
+}
+main .data{
+  display: inline-block;
+  border: 1px solid #000;
+}
+main .data .header .wrapper{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  gap: 20px;
+}
+main .data .header .wrapper p{
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+main .data .body .wrapper{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  gap: 20px;
+}
+main .data .body .wrapper p{
+  font-family: Arial, sans-serif;
+  padding: 0 1rem;
+}
+
+main .form .wrapper form .item{
+  display: flex;
+  flex-direction: column;
+}
+main .form .wrapper form .item label{
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+}
+main .form .wrapper form .item input{
+  padding: 5px 10px;
+  font-family: Arial, sans-serif;
+}

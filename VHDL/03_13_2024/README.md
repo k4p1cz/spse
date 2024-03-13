@@ -1,4 +1,4 @@
-#POSUVNY REGISTR
+# POSUVNY REGISTR
 - Bude shiftovat bud z leva do prava nebo naopak
 ## Soubory
 - app.vhd - main

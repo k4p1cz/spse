@@ -1,0 +1,40 @@
+# Project: Spojovy_Seznam
+# Makefile created by Red Panda C++ 1.0.0
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = Spojovy_Seznam_private.res
+OBJ      = main.o uzel.o seznam.o $(RES)
+LINKOBJ  = main.o uzel.o seznam.o $(RES)
+CLEANOBJ  =  main.o uzel.o seznam.o $(RES)
+LIBS     =  -static
+INCS     =  
+CXXINCS  =  
+BIN      = Spojovy_Seznam.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) $(BIN) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp spoj.h
+	$(CPP) -c C:/vyuka/Spojovy_Seznam/main.cpp -o main.o $(CXXFLAGS) 
+
+uzel.o: uzel.cpp spoj.h
+	$(CPP) -c C:/vyuka/Spojovy_Seznam/uzel.cpp -o uzel.o $(CXXFLAGS) 
+
+seznam.o: seznam.cpp spoj.h
+	$(CPP) -c C:/vyuka/Spojovy_Seznam/seznam.cpp -o seznam.o $(CXXFLAGS)  -finput-charset=windows-1250 -fexec-charset=windows-1250
+
+Spojovy_Seznam_private.res: Spojovy_Seznam_private.rc 
+	$(WINDRES) -i Spojovy_Seznam_private.rc --input-format=rc -o Spojovy_Seznam_private.res -O coff 
+

@@ -10,8 +10,8 @@ clk : in  STD_LOGIC;
 ce : in  STD_LOGIC; -- chip enable
 input : in  STD_LOGIC_VECTOR (7 downto 0);
 clear : in  STD_LOGIC;
-           left : in  STD_LOGIC;
-           right : in  STD_LOGIC;
-           set : in  STD_LOGIC;
-           output : out  STD_LOGIC_VECTOR (7 downto 0)
+left : in  STD_LOGIC;
+right : in  STD_LOGIC;
+set : in  STD_LOGIC;
+output : out  STD_LOGIC_VECTOR (7 downto 0)
 ```

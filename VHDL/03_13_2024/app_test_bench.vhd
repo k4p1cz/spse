@@ -72,6 +72,7 @@ BEGIN
       wait for 100 ns;	
 
       wait for clk_period*10;
+		-- Nastavuji defaultni hodnoty
 		ce <= '1';
 		clear <= '0';
 		input <= "00110011";
@@ -79,10 +80,12 @@ BEGIN
 		set <= '1';
 		wait for clk_period;
 		set <= '0';
-		left <= '1';
+		left <= '1';		
 		wait for clk_period;
 		left <= '0';
+		-- "set" i "left" jsou impulzy - proto je po 1 clk vracim do 0
 		wait for clk_period*100;
+		-- zmena smeru
 		right <= '1';
 		wait for clk_period;
 		right <= '0';

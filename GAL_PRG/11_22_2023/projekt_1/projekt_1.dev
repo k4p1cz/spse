@@ -44,16 +44,16 @@ UseUTF8 = 1
 
 
 [Unit1]
-FileName = func.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
+FileName = lib.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = 
+RealEncoding = UTF-8
 
 
 [VersionInfo]
@@ -77,11 +77,11 @@ SyncProduct = 1
 
 
 [Unit2]
-FileName = lib.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
+FileName = func.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 

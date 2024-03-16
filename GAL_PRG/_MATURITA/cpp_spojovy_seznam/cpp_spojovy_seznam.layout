@@ -1,0 +1,52 @@
+[
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/filesystem.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 4,
+        "topLine": 1
+    },
+    {
+        "caretX": 9,
+        "caretY": 15,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/header.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 1
+    },
+    {
+        "caretX": 105,
+        "caretY": 30,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/seznam.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 3,
+        "topLine": 14
+    },
+    {
+        "caretX": 43,
+        "caretY": 12,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/uzel.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 1
+    },
+    {
+        "caretX": 10,
+        "caretY": 8,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/main.cpp",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 5
+    }
+]

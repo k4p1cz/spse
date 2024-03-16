@@ -1,0 +1,42 @@
+[
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/SpojovySeznam/main.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 3,
+        "topLine": 8
+    },
+    {
+        "caretX": 4,
+        "caretY": 69,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/SpojovySeznam/Seznam.cpp",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 43
+    },
+    {
+        "caretX": 11,
+        "caretY": 8,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/SpojovySeznam/Knihy.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 1
+    },
+    {
+        "caretX": 13,
+        "caretY": 8,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/SpojovySeznam/header.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 23
+    }
+]

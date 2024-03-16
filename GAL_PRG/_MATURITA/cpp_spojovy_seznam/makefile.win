@@ -1,0 +1,44 @@
+# Project: cpp_spojovy_seznam
+# Makefile created by Red Panda C++ 2.26.2249
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = cpp_spojovy_seznam_private.res
+OBJ      = filesystem.o seznam.o uzel.o main.o $(RES)
+LINKOBJ  = filesystem.o seznam.o uzel.o main.o cpp_spojovy_seznam_private.res
+CLEANOBJ  =  filesystem.o seznam.o uzel.o main.o  cpp_spojovy_seznam_private.res cpp_spojovy_seznam.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = cpp_spojovy_seznam.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -D__DEBUG__
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+filesystem.o: filesystem.cpp
+	$(CPP) -c filesystem.cpp -o filesystem.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+seznam.o: seznam.cpp header.h
+	$(CPP) -c seznam.cpp -o seznam.o $(CXXFLAGS) 
+
+uzel.o: uzel.cpp header.h
+	$(CPP) -c uzel.cpp -o uzel.o $(CXXFLAGS) 
+
+main.o: main.cpp header.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
+
+cpp_spojovy_seznam_private.res: cpp_spojovy_seznam_private.rc 
+	$(WINDRES) -i cpp_spojovy_seznam_private.rc --input-format=rc -o cpp_spojovy_seznam_private.res -O coff $(WINDRESFLAGS) 
+

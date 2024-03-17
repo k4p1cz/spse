@@ -2,6 +2,7 @@
 #define HEADERS_H
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 using namespace std;
 
 class Uzel{
@@ -31,8 +32,14 @@ private:
 public:
 	Seznam();
 	void pridejNaZacatek(int e);
-	void pridejNaKonec(int e);
+	void pridejNaKonec(int e, bool notif);
 	void vypisSeznam() const;
+	void zapisDoSouboru();
+	void nacistZeSouboru();
 };
+
+// filesystem.cpp
+
+void fs_init();
 
 #endif

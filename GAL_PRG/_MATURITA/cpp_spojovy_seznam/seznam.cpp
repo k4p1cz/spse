@@ -20,7 +20,7 @@ void Seznam::pridejNaZacatek(int e) {
 	cout << "Item byl ulozen na zacatek" << endl;
 	system("pause");
 }
-void Seznam::pridejNaKonec(int e){
+void Seznam::pridejNaKonec(int e, bool notif){
 	system("cls");
 	Uzel* temp;
 	Uzel* novyUzel = new Uzel(e);
@@ -31,8 +31,10 @@ void Seznam::pridejNaKonec(int e){
 		temp->nastavNasl(novyUzel);
 		novyUzel->nastavPred(temp);
 	}
-	cout << "Item byl ulozen na konec" << endl;
-	system("pause");
+	if(notif){ // pokud chceme uzivatele obeznamit s zapsanim na konec
+		cout << "Item byl ulozen na konec" << endl;
+		system("pause");
+	}
 }
 void Seznam::vypisSeznam() const{	
 	system("cls");

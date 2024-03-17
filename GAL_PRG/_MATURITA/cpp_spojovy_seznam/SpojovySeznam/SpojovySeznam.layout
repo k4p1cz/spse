@@ -10,18 +10,18 @@
         "topLine": 8
     },
     {
-        "caretX": 4,
-        "caretY": 69,
+        "caretX": 7,
+        "caretY": 172,
         "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/SpojovySeznam/Seznam.cpp",
         "focused": true,
         "isOpen": true,
         "leftChar": 1,
         "order": 2,
-        "topLine": 43
+        "topLine": 150
     },
     {
-        "caretX": 11,
-        "caretY": 8,
+        "caretX": 19,
+        "caretY": 22,
         "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/SpojovySeznam/Knihy.cpp",
         "focused": false,
         "isOpen": true,
@@ -37,6 +37,6 @@
         "isOpen": true,
         "leftChar": 1,
         "order": 0,
-        "topLine": 23
+        "topLine": 9
     }
 ]

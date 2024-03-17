@@ -5,6 +5,7 @@ int main(int argc, char** argv) {
 	Uzel item;
 	Seznam list;
 	int volba = 0;
+	fs_init();
 	for(;;){
 		do{
 			system("cls");
@@ -23,11 +24,17 @@ int main(int argc, char** argv) {
 		switch (volba) {
 		case 1:
 			cin >> item;
-			list.pridejNaKonec(item.dejCislo());
+			list.pridejNaKonec(item.dejCislo(), true);
 			break;
 		case 2:
 			cin >> item;
 			list.pridejNaZacatek(item.dejCislo());
+			break;
+		case 3:
+			list.zapisDoSouboru();
+			break;
+		case 4:
+			list.nacistZeSouboru();
 			break;
 		case 5:
 			list.vypisSeznam();

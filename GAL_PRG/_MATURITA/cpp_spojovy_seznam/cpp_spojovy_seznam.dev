@@ -44,7 +44,7 @@ UseUTF8 = 1
 
 
 [Unit1]
-FileName = filesystem.cpp
+FileName = seznam.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -53,7 +53,7 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = UTF-8
+RealEncoding = ASCII
 
 
 [VersionInfo]
@@ -77,11 +77,11 @@ SyncProduct = 1
 
 
 [Unit2]
-FileName = header.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
+FileName = main.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -90,7 +90,7 @@ RealEncoding = ASCII
 
 
 [Unit3]
-FileName = seznam.cpp
+FileName = filesystem.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -103,6 +103,19 @@ RealEncoding = ASCII
 
 
 [Unit4]
+FileName = header.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit5]
 FileName = uzel.cpp
 CompileCpp = 1
 Folder = Sources
@@ -112,20 +125,7 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit5]
-FileName = main.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
+RealEncoding = UTF-8
 
 
 [Unit6]

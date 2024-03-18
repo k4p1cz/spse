@@ -11,7 +11,7 @@
 	- Vsechny funkce nemaji navratovou hodnotu
 		- Bylo by vhodne je minimalne predelat na typ bool a v main.cpp overovat jejich ocekavany prubeh
 > [!NOTE]
-> Je mozne, ze me reseni neni nejlepsi, pokud mate lepsi napad, jak neco vyresit, vytvorte prosim [ISSUE](https://github.com/k4p1cz/spse/issues). Do nazvu uvedte, ze mate napad na vylepseji spojoveho seznamu. Diky!
+> Je mozne, ze me reseni neni nejlepsi (nejsem expert pres C++). Pokud mate lepsi napad, jak neco vyresit, vytvorte prosim [ISSUE](https://github.com/k4p1cz/spse/issues). Do nazvu uvedte, ze mate napad na vylepseji spojoveho seznamu. Diky!
 ## Obsahuje
 1. Pridani zaznamu na zacatek
 2. Pridani zaznamu na konec

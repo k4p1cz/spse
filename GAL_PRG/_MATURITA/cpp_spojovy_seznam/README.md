@@ -3,7 +3,7 @@
 - Vhodne na pripravu k maturite
 - Udelal jsem par veci jinak, nez v lavici
 	- Misto toho ukladat data primo do projektu je ukladam do appdata/roaming
-	- V uzlu mam pouze jeden parametr a to cislo
+	- V uzlu mam pouze jeden parametr - cele cislo
 		- U maturity urcite bude zadani s vice parametry, ale hlavni princip spojoveho seznamu je stale stejny
 - Co si myslim, ze neni vyreseno spravne/mohlo by se udelat jinak
 	- Hodnekrat jsem pouzil for loop

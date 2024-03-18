@@ -5,9 +5,9 @@ CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = cpp_spojovy_seznam_private.res
-OBJ      = seznam.o main.o filesystem.o uzel.o $(RES)
-LINKOBJ  = seznam.o main.o filesystem.o uzel.o cpp_spojovy_seznam_private.res
-CLEANOBJ  =  seznam.o main.o filesystem.o uzel.o  cpp_spojovy_seznam_private.res cpp_spojovy_seznam.exe
+OBJ      = filesystem.o uzel.o seznam.o main.o $(RES)
+LINKOBJ  = filesystem.o uzel.o seznam.o main.o cpp_spojovy_seznam_private.res
+CLEANOBJ  =  filesystem.o uzel.o seznam.o main.o  cpp_spojovy_seznam_private.res cpp_spojovy_seznam.exe
 LIBS     = 
 INCS     =  
 CXXINCS  =  
@@ -27,17 +27,17 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-seznam.o: seznam.cpp header.h
-	$(CPP) -c seznam.cpp -o seznam.o $(CXXFLAGS) 
-
-main.o: main.cpp header.h
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
-
 filesystem.o: filesystem.cpp header.h
 	$(CPP) -c filesystem.cpp -o filesystem.o $(CXXFLAGS) 
 
 uzel.o: uzel.cpp header.h
 	$(CPP) -c uzel.cpp -o uzel.o $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+seznam.o: seznam.cpp header.h
+	$(CPP) -c seznam.cpp -o seznam.o $(CXXFLAGS) 
+
+main.o: main.cpp header.h
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS) 
 
 cpp_spojovy_seznam_private.res: cpp_spojovy_seznam_private.rc 
 	$(WINDRES) -i cpp_spojovy_seznam_private.rc --input-format=rc -o cpp_spojovy_seznam_private.res -O coff $(WINDRESFLAGS) 

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <Windows.h>
+#include <unistd.h>
 using namespace std;
 
 class Uzel{
@@ -31,15 +33,18 @@ private:
 	Uzel* prvni;
 public:
 	Seznam();
-	void pridejNaZacatek(int e);
+	void pridejNaZacatek(int e, bool notif);
 	void pridejNaKonec(int e, bool notif);
 	void vypisSeznam() const;
 	void zapisDoSouboru();
 	void nacistZeSouboru();
+	void odstranitZaznam();
+	void duplikovatZaznam();
 };
 
 // filesystem.cpp
 
 void fs_init();
-
+void openSystemFolder();
+void removeAllSystemFolders();
 #endif

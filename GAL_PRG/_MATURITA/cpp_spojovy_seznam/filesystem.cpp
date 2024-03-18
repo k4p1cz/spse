@@ -59,7 +59,8 @@ void Seznam::nacistZeSouboru(){
 	
 	fstream file(path); // otevre/vytvori soubor pro cteni
 	if(file.fail()){
-		cout << "ERROR: Nepodarilo se otevrit soubbor" << endl;
+		system("cls");
+		cout << "ERROR: Nepodarilo se otevrit soubor! Pravdepodobne zadny takovy neexistuje..." << endl;
 		cout << "ERROR PATH: " << path << endl;
 		system("pause");
 	}else{
@@ -94,11 +95,29 @@ void Seznam::nacistZeSouboru(){
 			*/
 		}
 		file.close();
-		cout << "Data byly uspesne nacteny ze souboru!";
+		cout << "Data byly uspesne nacteny ze souboru!" << endl;
 		system("pause");
 	}
-	
-	
 }
 
+void openSystemFolder(){
+	//	path = appdata + "\\cpp_spojovy_seznam\\data\\" + filename;
+	const char* appdata = getenv("APPDATA");
+	string path = string(appdata) + "\\cpp_spojovy_seznam\\data";
+	ShellExecute(NULL, "open", "explorer.exe", path.c_str(), NULL, SW_SHOWNORMAL);
+}
 
+void removeAllSystemFolders(){
+	system("cls");
+	const char* appdata = getenv("APPDATA");
+	string folderPath = string(appdata) + "\\cpp_spojovy_seznam";
+	try {
+		fs::remove_all(folderPath);
+		cout << "Data smazana, aplikace se restartuje..." << endl;
+		system("pause");
+		
+	} catch (const exception& e) {
+		cerr << "Chyba: " << e.what() << endl;
+		system("pause");
+	}
+}

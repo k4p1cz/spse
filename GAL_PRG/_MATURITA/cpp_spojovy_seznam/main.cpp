@@ -17,10 +17,12 @@ int main(int argc, char** argv) {
 			cout << "5. Vypsat seznam" << endl;
 			cout << "6. Odstranit zaznam" << endl;
 			cout << "7. Duplikovat zaznam" << endl;
+			cout << "8. Otevrit slozku s daty" << endl;
+			cout << "9. Vymazat slozku s daty (reset aplikace)" << endl;
 			cout << "----------------" << endl;
 			cout << "Vyber: ";
 			cin >> volba;
-		}while(volba < 1 || volba > 7);
+		}while(volba < 1 || volba > 9);
 		switch (volba) {
 		case 1:
 			cin >> item;
@@ -28,7 +30,7 @@ int main(int argc, char** argv) {
 			break;
 		case 2:
 			cin >> item;
-			list.pridejNaZacatek(item.dejCislo());
+			list.pridejNaZacatek(item.dejCislo(), true);
 			break;
 		case 3:
 			list.zapisDoSouboru();
@@ -39,8 +41,24 @@ int main(int argc, char** argv) {
 		case 5:
 			list.vypisSeznam();
 			break;
-		default:
-			//TODO
+		case 6:
+			list.odstranitZaznam();
+			break;
+		case 7:
+			list.duplikovatZaznam();
+			break;
+		case 8:
+			openSystemFolder();
+			break;
+		case 9:
+			removeAllSystemFolders();
+			char buffer[MAX_PATH];
+			GetModuleFileName(NULL, buffer, MAX_PATH);
+			string exePath(buffer);
+			string folderPath = "cd " + exePath.substr(0, exePath.find_last_of("\\/"));
+			system(folderPath.c_str());
+			system("cpp_spojovy_seznam.exe");
+			return 0;
 			break;
 		}
 		volba = 0;

@@ -1,4 +1,0 @@
-2;Kruk;Hohol;183;
-3;Kokos;Nut;500;
-1;Kompas;Kuba;250;
-5;Kruk;Black;150;

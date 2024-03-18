@@ -18,7 +18,7 @@
 	string exePath(buffer);
 	string folderPath = "cd " + exePath.substr(0, exePath.find_last_of("\\/"));
 	system(folderPath.c_str());
-	filename = "" // zde zjisteni nazvu .exe
+	fileName = "" // zde zjisteni nazvu .exe
 	system(fileName); // zde pouziti .exe nazvu
 ```
 > [!IMPORTANT]

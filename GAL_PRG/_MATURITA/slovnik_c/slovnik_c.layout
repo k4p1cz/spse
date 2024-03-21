@@ -1,0 +1,42 @@
+[
+    {
+        "caretX": 18,
+        "caretY": 11,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/slovnik_c/main.c",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 0,
+        "topLine": 1
+    },
+    {
+        "caretX": 15,
+        "caretY": 25,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/slovnik_c/headers.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 1
+    },
+    {
+        "caretX": 103,
+        "caretY": 51,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/slovnik_c/filesystem.c",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 3,
+        "topLine": 50
+    },
+    {
+        "caretX": 5,
+        "caretY": 129,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/slovnik_c/slovnik.c",
+        "focused": true,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 127
+    }
+]

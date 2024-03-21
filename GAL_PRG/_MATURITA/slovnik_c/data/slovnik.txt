@@ -1,0 +1,2 @@
+Ahoj;Hi;1;
+Ne;No;1;

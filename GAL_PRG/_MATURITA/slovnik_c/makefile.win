@@ -1,0 +1,41 @@
+# Project: slovnik_c
+# Makefile created by Red Panda C++ 2.26.2249
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = slovnik_c_private.res
+OBJ      = main.o filesystem.o slovnik.o $(RES)
+LINKOBJ  = main.o filesystem.o slovnik.o slovnik_c_private.res
+CLEANOBJ  =  main.o filesystem.o slovnik.o  slovnik_c_private.res slovnik_c.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = slovnik_c.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -D__DEBUG__
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c headers.h
+	$(CC) -c main.c -o main.o $(CFLAGS) 
+
+filesystem.o: filesystem.c headers.h
+	$(CC) -c filesystem.c -o filesystem.o $(CFLAGS) 
+
+slovnik.o: slovnik.c headers.h
+	$(CC) -c slovnik.c -o slovnik.o $(CFLAGS) 
+
+slovnik_c_private.res: slovnik_c_private.rc 
+	$(WINDRES) -i slovnik_c_private.rc --input-format=rc -o slovnik_c_private.res -O coff $(WINDRESFLAGS) 
+

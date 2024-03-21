@@ -1,0 +1,15 @@
+{
+    "breakpoints": [
+        {
+            "breakpoint_type": 0,
+            "condition": "",
+            "enabled": true,
+            "filename": "filesystem.c",
+            "line": 42,
+            "timestamp": "1710864303278"
+        }
+    ],
+    "timestamp": "1710881460384",
+    "watchvars": [
+    ]
+}

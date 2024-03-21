@@ -1,7 +1,7 @@
 [Project]
-filename = cpp_spojovy_seznam.dev
-name = cpp_spojovy_seznam
-UnitCount = 5
+filename = slovnik_c.dev
+name = slovnik_c
+UnitCount = 4
 Type = 1
 Ver = 3
 Includes = 
@@ -9,12 +9,12 @@ Libs =
 Bins = 
 ResourceIncludes = 
 MakeIncludes = 
-PrivateResource = cpp_spojovy_seznam_private.rc
+PrivateResource = slovnik_c_private.rc
 Compiler = 
 CppCompiler = 
 Linker = 
 ResourceCommand = 
-IsCpp = 1
+IsCpp = 0
 Icon = app.ico
 ExeOutput = 
 ObjectOutput = 
@@ -44,8 +44,8 @@ UseUTF8 = 1
 
 
 [Unit1]
-FileName = main.cpp
-CompileCpp = 1
+FileName = main.c
+CompileCpp = 0
 Folder = Sources
 Compile = 1
 Link = 1
@@ -53,7 +53,7 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = UTF-8
+RealEncoding = ASCII
 
 
 [VersionInfo]
@@ -64,33 +64,20 @@ Build = 0
 LanguageID = 1033
 CharsetID = 1252
 CompanyName = 
-FileVersion = 0.1
+FileVersion = 
 FileDescription = Developed using the Red Panda C++ IDE
 InternalName = 
 LegalCopyright = 
 LegalTrademarks = 
-OriginalFilename = cpp_spojovy_seznam.exe
-ProductName = cpp_spojovy_seznam
-ProductVersion = 0.1.1.1
+OriginalFilename = 
+ProductName = 
+ProductVersion = 
 AutoIncBuildNr = 0
 SyncProduct = 1
 
 
 [Unit2]
-FileName = uzel.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit3]
-FileName = header.h
+FileName = headers.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -99,38 +86,25 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = UTF-8
+RealEncoding = ASCII
+
+
+[Unit3]
+FileName = filesystem.c
+CompileCpp = 0
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
 
 
 [Unit4]
-FileName = filesystem.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit5]
-FileName = seznam.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit6]
-FileName = main.cpp
-CompileCpp = 1
+FileName = slovnik.c
+CompileCpp = 0
 Folder = Sources
 Compile = 1
 Link = 1

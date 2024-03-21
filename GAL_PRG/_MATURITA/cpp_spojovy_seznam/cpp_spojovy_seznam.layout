@@ -1,43 +1,13 @@
 [
     {
-        "caretX": 1,
-        "caretY": 30,
-        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/seznam.cpp",
-        "focused": false,
-        "isOpen": true,
-        "leftChar": 1,
-        "order": 2,
-        "topLine": 14
-    },
-    {
-        "caretX": 43,
-        "caretY": 16,
+        "caretX": 10,
+        "caretY": 25,
         "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/main.cpp",
         "focused": true,
         "isOpen": true,
         "leftChar": 1,
         "order": 0,
-        "topLine": 13
-    },
-    {
-        "caretX": 2,
-        "caretY": 52,
-        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/filesystem.cpp",
-        "focused": false,
-        "isOpen": true,
-        "leftChar": 1,
-        "order": 4,
-        "topLine": 45
-    },
-    {
-        "caretX": 7,
-        "caretY": 35,
-        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/header.h",
-        "focused": false,
-        "isOpen": true,
-        "leftChar": 1,
-        "order": 1,
-        "topLine": 7
+        "topLine": 9
     },
     {
         "caretX": 2,
@@ -48,5 +18,35 @@
         "leftChar": 1,
         "order": 3,
         "topLine": 1
+    },
+    {
+        "caretX": 7,
+        "caretY": 36,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/header.h",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 1,
+        "topLine": 16
+    },
+    {
+        "caretX": 33,
+        "caretY": 85,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/filesystem.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 4,
+        "topLine": 99
+    },
+    {
+        "caretX": 6,
+        "caretY": 173,
+        "filename": "E:/Programming/repos/spse/GAL_PRG/_MATURITA/cpp_spojovy_seznam/seznam.cpp",
+        "focused": false,
+        "isOpen": true,
+        "leftChar": 1,
+        "order": 2,
+        "topLine": 246
     }
 ]

@@ -16,4 +16,7 @@ departure : in  STD_LOGIC;
 reset : in  STD_LOGIC;
 semaphore : out  STD_LOGIC;
 display : out  STD_LOGIC_VECTOR (6 downto 0));
+## Napoveda
+- V VHDL helpu se muzeme podivat na Mealyho state-machine 
+	-VHDL/Synshesis Constructs/Coding Examples/State-Machines/Mealy State-Machine
 ```

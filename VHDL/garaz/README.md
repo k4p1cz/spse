@@ -1,5 +1,5 @@
-# POSUVNY REGISTR
-- Bude shiftovat bud z leva do prava nebo naopak
+# GARAZ
+- Tlacitky budeme ovladat prijizdejici auta do garaze, jakmile aut bude 5, rozsviti se cervena na semaforu (led) a dalsi auto nebude moci prijet. Dalsim tlacitkem budeme resetovat. Na sedmisegmentu se bude zobrazovat aktualni pocet aut.
 ## Soubory
 - app.vhd - main
 - app_test_bench.vhd - test bench pro main

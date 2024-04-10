@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "/home/p04/kapitanov/garaz_test/app_test_bench_isim_beh.exe" -prj "/home/p04/kapitanov/garaz_test/app_test_bench_beh.prj" "work.app_test_bench" 

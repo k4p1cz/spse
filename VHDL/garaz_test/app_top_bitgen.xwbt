@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/p04/kapitanov/garaz_test/app_top.ncd
+OUTFILE=/home/p04/kapitanov/garaz_test/app_top.bit
+FAMILY=Spartan3E
+PART=xc3s250e-5cp132
+WORKINGDIR=/home/p04/kapitanov/garaz_test
+LICENSE=WebPack
+USER_INFO=210745664_0_0_552

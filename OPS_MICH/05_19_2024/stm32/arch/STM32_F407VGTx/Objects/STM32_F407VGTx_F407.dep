@@ -1,0 +1,54 @@
+Dependencies for Project 'STM32_F407VGTx', Target 'F407': (DO NOT MODIFY !)
+F (..\..\config\config.h)(0x66221695)()
+F (..\..\config\RTX_Conf_CM.c)(0x66164863)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\include -I ..\..\config -I ..\..\boards-I f:\Keil_v5\ARM\RV31\Inc-I C:\Users\root\Documents\kapitanov\spse-main\OPS_MICH\05_19_2024\stm32\arch\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F407xx-o .\objects\rtx_conf_cm.o --omf_browse .\objects\rtx_conf_cm.crf --depend .\objects\rtx_conf_cm.d)
+I (..\..\config\config.h)(0x66221695)
+I (f:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569D7C80)
+I (f:\Keil_v5\ARM\RV31\Inc\RTL.h)(0x559C4BE0)
+I (f:\Keil_v5\ARM\RV31\Inc\RTX_lib.c)(0x559C4BE0)
+F (..\..\..\README.md)(0x66164863)()
+F (..\..\..\examples\example_01-blinkLED.c)(0x66164863)()
+F (..\..\..\examples\example_02-extLED.c)(0x66164863)()
+F (..\..\..\examples\example_03-userButton.c)(0x66164863)()
+F (..\..\..\examples\example_04-LCD.c)(0x66164863)()
+F (..\..\..\examples\example_05-KeyPad.c)(0x66164863)()
+F (..\..\..\examples\example_06-blinkLED_TIMx.c)(0x66164863)()
+F (..\..\..\examples\example_07-blinkLED_TIMx-2.c)(0x66164863)()
+F (..\..\..\templates\main.template.c)(0x66164863)()
+F (..\..\..\templates\rtos.template.c)(0x66164863)()
+F (..\..\..\src\app.c)(0x66221918)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\include -I ..\..\config -I ..\..\boards-I f:\Keil_v5\ARM\RV31\Inc-I C:\Users\root\Documents\kapitanov\spse-main\OPS_MICH\05_19_2024\stm32\arch\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F407xx-o .\objects\app.o --omf_browse .\objects\app.crf --depend .\objects\app.d)
+I (..\..\include\stm32_kit.h)(0x66164863)
+I (..\..\config\config.h)(0x66221695)
+I (f:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569D7C80)
+I (f:\Keil_v5\ARM\RV31\Inc\RTL.h)(0x559C4BE0)
+I (..\..\include\stm32_kit/platform.h)(0x66164863)
+I (C:\Users\root\Documents\kapitanov\spse-main\OPS_MICH\05_19_2024\stm32\arch\STM32_F407VGTx\RTE\RTE_Components.h)(0x66221680)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5643D680)
+I (..\..\include\stm32_kit/chrono.h)(0x66164863)
+I (..\..\include\stm32_kit/gpio.h)(0x66164863)
+I (f:\Keil_v5\ARM\ARMCC\include\assert.h)(0x569D7C80)
+I (..\..\include\stm32_kit/led.h)(0x66164863)
+I (..\..\boards\boards.h)(0x66164863)
+I (..\..\boards\disc/f407.h)(0x66164863)
+I (..\..\include\stm32_kit/pin.h)(0x66164863)
+I (..\..\include\stm32_kit/lcd.h)(0x66164863)
+I (f:\Keil_v5\ARM\ARMCC\include\string.h)(0x569D7C80)
+I (..\..\include\stm32_kit/keypad.h)(0x66164863)
+I (f:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x569D7C80)
+F (RTE\Device\STM32F407VGTx\startup_stm32f407xx.s)(0x66164863)(--cpu Cortex-M4.fp --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I f:\Keil_v5\ARM\RV31\Inc-I C:\Users\root\Documents\kapitanov\spse-main\OPS_MICH\05_19_2024\stm32\arch\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 518" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list .\listings\startup_stm32f407xx.lst --xref -o .\objects\startup_stm32f407xx.o --depend .\objects\startup_stm32f407xx.d)
+F (RTE\Device\STM32F407VGTx\system_stm32f4xx.c)(0x66164863)(--c99 -c --cpu Cortex-M4.fp -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections -I ..\..\include -I ..\..\config -I ..\..\boards-I f:\Keil_v5\ARM\RV31\Inc-I C:\Users\root\Documents\kapitanov\spse-main\OPS_MICH\05_19_2024\stm32\arch\STM32_F407VGTx\RTE-I f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="518" -D_RTE_ -DSTM32F407xx-o .\objects\system_stm32f4xx.o --omf_browse .\objects\system_stm32f4xx.crf --depend .\objects\system_stm32f4xx.d)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h)(0x5643D680)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm4.h)(0x562567E0)
+I (f:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x569D7C80)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmSimd.h)(0x562567E0)
+I (f:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h)(0x5643D680)
